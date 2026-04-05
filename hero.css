@@ -75,7 +75,7 @@ header p {
   gap: 9vw;
 }
 header a {
-  width: max(200px,20dvw);
+  width: max(190px,20dvw);
   height: max(50px,6dvh);
   display: flex;
   flex-direction: column;
