@@ -78,8 +78,8 @@ header p {
   }
 }
 header a {
-  width: max(150px, 20dvw);
-  height: max(50px, 6dvh);
+  width: max(135px, 20dvw);
+  height: max(40px, 6dvh);
   display: flex;
   flex-direction: column;
   justify-content: center;
