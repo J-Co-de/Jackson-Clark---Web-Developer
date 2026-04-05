@@ -19,7 +19,6 @@ nav .logo {
   width: fit-content;
   gap: 2dvw;
   color: tan;
-  font-size: min(2rem, 6dvh);
   font-weight: bold;
   font-family: 'Cinzel Decorative', 'Georgia', 'Times New Roman', serif;
   cursor: default;
@@ -31,6 +30,7 @@ nav .logo {
   @media screen and (max-width:824px) {
     display:none;
   }
+  font-size: 2rem;
 }
 .logo svg {
   width: clamp(2rem, calc(1.5vw + 1rem), 5.5rem);

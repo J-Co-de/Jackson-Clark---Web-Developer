@@ -101,6 +101,11 @@ header a {
     &:active {
       transform: scale(0.95);
     }
+    @media screen and (max-height:450px) and (min-width:700px) {
+      position:absolute;
+      top:54%;
+      left:1dvw;
+    }
   }
   &:nth-of-type(2) {
     color: tan;
@@ -118,6 +123,11 @@ header a {
     &:active {
       transform: scale(0.95);
     }
+    @media screen and (max-height:450px) and (min-width:700px) {
+      position:absolute;
+      top:54%;
+      right:1dvw;
+    }
   }
 }
 .attention-arrow {
@@ -128,5 +138,4 @@ header a {
   transform:rotate(135deg);
   margin-top:8dvh;
   animation: bounce 2s ease-in-out infinite;
-
 }
