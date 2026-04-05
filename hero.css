@@ -78,14 +78,14 @@ header p {
   }
 }
 header a {
-  width: max(175px, 20dvw);
+  width: max(150px, 20dvw);
   height: max(50px, 6dvh);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-wrap: nowrap;
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-size: clamp(0.8rem, 2vw, 1.5rem);
   font-family: "Cinzel", "Baskerville", "Times New Roman", serif;
   border-radius: 10px;
 
@@ -135,7 +135,7 @@ header a {
     @media screen and (max-height: 450px) and (min-width: 700px) {
       position: absolute;
       top: 54%;
-      right: 3dvw;
+      right: 1dvw;
     }
   }
 }
