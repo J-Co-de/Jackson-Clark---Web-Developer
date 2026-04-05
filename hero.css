@@ -43,10 +43,13 @@ header span {
   font-size: clamp(1.2rem, 4vw, 3rem);
   font-family: "Quattrocento", "Georgia", "Times", serif;
   margin-top: 4dvh;
+  @media screen and (max-height: 450px) and (min-width: 700px) {
+      display:none;
+    }
 }
-hr {
-  width: 50dvw;
-  min-width: 340px;
+header  hr {
+  width: 60dvw;
+  min-width: 260px;
   border-color: tan;
   margin-top: 2dvh;
 }
@@ -62,30 +65,30 @@ header p {
   color: rgb(140, 146, 167);
 }
 header p {
-  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  font-size: clamp(0.8rem, 1.5vw, 1.3rem);
   font-family: "Quattrocento", "Georgia", "Times", serif;
   text-align: center;
-  width: max(70dvw, 350px);
+  width: max(60dvw, 315px);
   margin-top: 4dvh;
 }
 .hero-btns {
   display: flex;
-  flex-direction: row;
   margin-top: 3dvh;
   gap:10dvw;
   @media (max-width:425px) {
     gap:15px;
+    flex-direction:column;
   }
 }
 header a {
-  width: max(135px, 20dvw);
-  height: max(40px, 6dvh);
+  width: max(180px, 20dvw);
+  height: max(50px, 6dvh);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-wrap: nowrap;
-  font-size: clamp(0.8rem, 2vw, 1.5rem);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
   font-family: "Cinzel", "Baskerville", "Times New Roman", serif;
   border-radius: 10px;
 
@@ -108,11 +111,7 @@ header a {
     &:active {
       transform: scale(0.95);
     }
-    @media screen and (max-height: 450px) and (min-width: 700px) {
-      position: absolute;
-      top: 54%;
-      left: 1dvw;
-    }
+   
   }
   &:nth-of-type(2) {
     box-shadow: 3px 5px 10px black;
@@ -132,16 +131,14 @@ header a {
     &:active {
       transform: scale(0.95);
     }
-    @media screen and (max-height: 450px) and (min-width: 700px) {
-      position: absolute;
-      top: 54%;
-      right: 1dvw;
-    }
   }
 }
 .attention-arrow {
   position: absolute;
   bottom: 5dvh;
+  @media (hover:none) {
+    bottom:3dvh;
+  }
   color: tan;
   height: 10dvh;
   transform: rotate(135deg);
