@@ -1,15 +1,17 @@
 nav {
   position: fixed;
   width: 100dvw;
-  height: max(70px, 10dvh);
+  height: 10dvh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /*background-color: rgb(11, 14, 26); temporary*/
-  background-color:transparent;
-  /*border-bottom: 1px solid rgba(210, 180, 140, 0.4);*/
+  background-color: rgb(11, 14, 26);
+  border-bottom: 1px solid rgba(210, 180, 140, 0.4);
   z-index: 2147483647;
+  @media (orientation:landscape) {
+    height:15dvh;
+  }
 }
 nav .logo {
   position: absolute;
@@ -21,15 +23,15 @@ nav .logo {
   gap: 2dvw;
   color: tan;
   font-weight: bold;
-  font-family: 'Cinzel Decorative', 'Georgia', 'Times New Roman', serif;
+  font-family: "Cinzel Decorative", "Georgia", "Times New Roman", serif;
   cursor: default;
-  @media screen and (max-width:824px) {
-    left:6dvw;
+  @media screen and (max-width: 824px) {
+    left: 6dvw;
   }
 }
 .logo span {
-  @media screen and (max-width:824px) {
-    display:none;
+  @media screen and (max-width: 824px) {
+    display: none;
   }
   font-size: 2rem;
 }
@@ -61,14 +63,14 @@ nav .slash {
     display: inline-block;
     font-size: max(1rem, 2dvh);
     transition: color 0.3s ease;
-    font-family: 'Cinzel', 'Baskerville', 'Times New Roman', serif;
+    font-family: "Cinzel", "Baskerville", "Times New Roman", serif;
   }
   nav .norm-nav {
     @media (hover: hover) {
       &:hover {
-      color:rgb(230, 180, 140);
-      cursor: pointer;
-    }
+        color: rgb(230, 180, 140);
+        cursor: pointer;
+      }
     }
     &:active {
       transform: scale(0.95);
@@ -94,10 +96,10 @@ nav .slash {
     font-weight: bold;
     @media (hover: hover) {
       &:hover {
-      filter: brightness(110%);
-      cursor: pointer;
-    }
-    
+        filter: brightness(110%);
+        cursor: pointer;
+      }
+
       &:focus {
         filter: brightness(110%);
       }
