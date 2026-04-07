@@ -70,42 +70,29 @@ header a {
   text-wrap: nowrap;
   font-family: "Cinzel", "Baskerville", "Times New Roman", serif;
   border-radius: 10px;
+  @media (hover: hover) {
+    &:hover {
+      filter: brightness(110%);
+      transform: scale(0.95);
+      cursor: pointer;
+      box-shadow: none;
+    }
+    &:focus {
+      filter: brightness(110%);
+    }
+  }
+  &:active {
+    transform: scale(0.95);
+  }
   &:nth-of-type(1) {
     box-shadow: -3px 5px 10px black;
     background-color: tan;
     color: rgb(11, 14, 26);
-    @media (hover: hover) {
-      &:hover {
-        filter: brightness(110%);
-        transform: scale(0.95);
-        cursor: pointer;
-        box-shadow: none;
-      }
-      &:focus {
-        filter: brightness(110%);
-      }
-    }
-    &:active {
-      transform: scale(0.95);
-    }
   }
   &:nth-of-type(2) {
     box-shadow: 3px 5px 10px black;
     color: tan;
     border: 2px tan solid;
-    @media (hover: hover) {
-      &:hover {
-        filter: brightness(110%);
-        cursor: pointer;
-        box-shadow: none;
-      }
-      &:focus {
-        filter: brightness(110%);
-      }
-    }
-    &:active {
-      transform: scale(0.95);
-    }
   }
 }
 
@@ -214,7 +201,7 @@ header a {
     margin-top: -8.5vh;
   }
 }
-@media (min-width: 500px) and (max-width: 1025px) and (orientation: portrait) {
+@media (min-width: 500px) and (max-width: 1025px) and (orientation: portrait) and (hover:none) {
   header:before {
     background-image: url("Images/hero-portrait.png");
   }
@@ -226,7 +213,7 @@ header a {
     font-size: clamp(1rem, 4vh, 3rem);
     margin-top: 2vh;
     & > span {
-      display:inline;
+      display: inline;
     }
   }
 
@@ -261,7 +248,7 @@ header a {
     height: 6vh;
   }
 }
-@media (min-width: 700px) and (max-width: 1400px) and (min-height:500px) and (orientation: landscape) {
+@media (min-width: 700px) and (max-width: 1400px) and (min-height: 500px) and (orientation: landscape) and (hover:none) {
   header:before {
     background-image: url("Images/hero-landscape.png");
   }
