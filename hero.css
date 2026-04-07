@@ -201,7 +201,7 @@ header a {
     margin-top: -8.5vh;
   }
 }
-@media (min-width: 500px) and (max-width: 1025px) and (orientation: portrait) and (hover:none) {
+@media (min-width: 500px) and (max-width: 1400px) and (orientation: portrait) and (hover:none) {
   header:before {
     background-image: url("Images/hero-portrait.png");
   }
@@ -248,7 +248,7 @@ header a {
     height: 6vh;
   }
 }
-@media (min-width: 700px) and (max-width: 1400px) and (min-height: 500px) and (orientation: landscape) and (hover:none) {
+@media (min-width: 500px) and (max-width: 1400px) and (min-height: 500px) and (orientation: landscape) and (hover:none) {
   header:before {
     background-image: url("Images/hero-landscape.png");
   }
