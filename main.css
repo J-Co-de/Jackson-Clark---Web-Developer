@@ -1,8 +1,14 @@
 main {
-    position:relative;
-    height:100dvh;
-    background-color: #1C1C1E;
-    z-index:0;
+  position: relative;
+  height: fit-content;
+  background-color: rgb(13, 15, 24);
+  z-index: 0;
+  padding: 5vh 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 main:before {
   content: "";
@@ -18,4 +24,63 @@ main:before {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+@media (orientation: landscape) {
+  main h2 {
+    font-size: 7vw;
+    font-family: var(--font-heading);
+    color: var(--text);
+  }
+
+  main h3 {
+    font-size:2vw;
+    font-family: var(--font-subheading);
+    color: var(--accent);
+  }
+
+  
+  main p,
+  span {
+    font-size: 2vw;
+    color: var(--secondary-text);
+    font-family: var(--font-body);
+  }
+
+  #skill-grouping {
+    display:grid;
+    grid-template-columns: 40dvw, 40dvw;
+    grid-template-rows: 4vw 25vh 25vh;
+    grid-template-areas:
+      "header header"
+      "skill1 skill2"
+      "skill3 skill4";
+  }
+
+  .skills {
+    width: 35vw;
+    height: 20vh;
+    background-color:rgb(18, 24, 39);
+    border-radius:var(--border-radius);
+    border: 1px solid var(--accent);
+    &hr {
+      border:1px solid var(accent);
+    }
+  }
+  .skills:nth-of-type(1){
+    grid-area:skill1;
+  }
+  .skills:nth-of-type(2){
+    grid-area:skill2;
+  }
+  .skills:nth-of-type(3){
+    grid-area:skill3;
+  }
+  .skills:nth-of-type(4){
+    grid-area:skill4;
+  }
+  #id-section 
+  #id-section p, #id-section h2 {
+    grid-area:header;
+  }
+  
 }

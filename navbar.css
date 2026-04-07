@@ -151,13 +151,3 @@ nav .logo {
     /* ^ Hover CSS ^ */
   }
 }
-
-/*Wide Screen Navbar CSS*/
-
-/*Narrow Screen Navbar CSS*/
-@media screen and (max-width: 824px) {
-  
-  
-  
-  /* ^ Navbar CSS ^ */
-}
