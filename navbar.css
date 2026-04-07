@@ -1,49 +1,78 @@
 nav {
   position: fixed;
   width: 100dvw;
-  height: 10dvh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: rgb(11, 14, 26);
+  background-color: var(--primary-bg);
   border-bottom: 1px solid rgba(210, 180, 140, 0.4);
   z-index: 2147483647;
-  @media (orientation:landscape) {
-    height:15dvh;
-  }
 }
 nav .logo {
   position: absolute;
-  left: 3dvw;
   display: flex;
   flex-direction: row;
   align-items: center;
   width: fit-content;
   gap: 2dvw;
-  color: tan;
+  color: var(--accent);
   font-weight: bold;
-  font-family: "Cinzel Decorative", "Georgia", "Times New Roman", serif;
+  font-family: var(--font-heading);
   cursor: default;
-  @media screen and (max-width: 824px) {
-    left: 6dvw;
-  }
 }
-.logo span {
-  @media screen and (max-width: 824px) {
-    display: none;
-  }
-  font-size: 2rem;
-}
+
 .logo svg {
-  width: clamp(2rem, calc(1.5vw + 1rem), 5.5rem);
   transition: transform 0.5s ease;
 }
-nav .slash {
-  font-size: max(1.4rem, 2dvh);
+
+@media (orientation: portrait) {
+  nav {
+    height: 10dvh;
+  }
+  nav .logo {
+    left: 6dvw;
+  }
+  .logo span {
+    display: none;
+  }
+  .logo svg {
+    width: 6vh;
+  }
+  nav ul {
+    display: none;
+  }
+
+  nav .hamburger {
+    position: absolute;
+    right: 9vw;
+    width: fit-content;
+    height: fit-content;
+    color: var(--accent);
+    border: none;
+    background-color: transparent;
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  nav .hamburger svg {
+    width: 6vh;
+  }
 }
-/*Wide Screen Navbar CSS*/
-@media screen and (min-width: 825px) {
+@media (orientation: landscape) {
+  nav {
+    height: min(10vw, 15vh);
+  }
+  nav .logo {
+    left: 3dvw;
+  }
+  .logo span {
+    font-size: 3vw;
+  }
+  .logo svg {
+    width: 3vw;
+  }
   nav ul {
     position: absolute;
     right: 3dvw;
@@ -54,23 +83,28 @@ nav .slash {
     display: none;
   }
   nav li {
-    display: inline-block;
-    padding: 2.4dvw;
+    display: inline;
+    padding: 3dvw;
   }
-
   nav a {
     position: relative;
     display: inline-block;
-    font-size: max(1rem, 2dvh);
     transition: color 0.3s ease;
-    font-family: "Cinzel", "Baskerville", "Times New Roman", serif;
+    font-family: var(--font-subheading);
+    font-size: 1.75dvw;
+    cursor: pointer;
+  }
+  nav .slash {
+    font-size: 1.75dvw;
   }
   nav .norm-nav {
     @media (hover: hover) {
       &:hover {
         color: rgb(230, 180, 140);
-        cursor: pointer;
       }
+    }
+    &:focus {
+      color: rgb(230, 180, 140);
     }
     &:active {
       transform: scale(0.95);
@@ -89,15 +123,14 @@ nav .slash {
     transition: transform 0.3s ease;
   }
   .resume-nav {
-    color: rgb(11, 14, 26);
-    background-color: tan;
+    color: var(--primary-bg);
+    background-color: var(--accent);
     padding: 0.5rem;
     border-radius: 8px;
     font-weight: bold;
     @media (hover: hover) {
       &:hover {
         filter: brightness(110%);
-        cursor: pointer;
       }
 
       &:focus {
@@ -108,7 +141,6 @@ nav .slash {
       transform: scale(0.95);
     }
   }
-
   @media (hover: hover) {
     nav:hover .logo svg {
       transform: rotate(-15deg);
@@ -117,31 +149,15 @@ nav .slash {
       transform: scaleX(1);
     }
     /* ^ Hover CSS ^ */
-    nav:focus .logo svg {
-      transform: rotate(-15deg);
-    }
   }
 }
 
+/*Wide Screen Navbar CSS*/
+
 /*Narrow Screen Navbar CSS*/
 @media screen and (max-width: 824px) {
-  nav ul {
-    display: none;
-  }
-  nav .hamburger {
-    position: absolute;
-    right: 6vw;
-    width: fit-content;
-    height: fit-content;
-    color: tan;
-    border: none;
-    background-color: transparent;
-    &:active {
-      transform: scale(0.95);
-    }
-  }
-  nav .hamburger svg {
-    width: clamp(2.5rem, calc(1.5vw + 1rem), 5.5rem);
-  }
+  
+  
+  
   /* ^ Navbar CSS ^ */
 }

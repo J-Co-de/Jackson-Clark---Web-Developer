@@ -2,6 +2,30 @@
 @import url("navbar.css");
 @import url("hero.css");
 @import url("main.css");
+
+/* CSS Custom Properties */
+:root {
+  /* Colors */
+  --primary-bg: rgb(11, 14, 26);
+  --accent: tan;
+  --secondary-text: #999EB2;
+  --text: white;
+  --shadow: black;
+
+  /* Shadows */
+  --shadow-main: 3px 5px 10px rgba(0, 0, 0, 0.5);
+  --shadow-btn: -3px 5px 10px var(--shadow);
+  --shadow-btn-alt: 3px 5px 10px var(--shadow);
+
+  /* Border radius */
+  --border-radius: 10px;
+
+  /* Font families */
+  --font-heading: "Cinzel Decorative", "Georgia", "Times New Roman", serif;
+  --font-subheading: "Cinzel", "Baskerville", "Times New Roman", serif;
+  --font-body: "Quattrocento", "Georgia", "Times", serif;
+}
+
 * {
   margin: 0;
   padding: 0;

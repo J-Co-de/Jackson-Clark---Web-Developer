@@ -4,8 +4,8 @@ header {
   height: 100dvh;
   max-height: 100lvh;
   width: 100dvw;
-  background-color: rgb(11, 14, 26);
-  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: var(--primary-bg);
+  box-shadow: var(--shadow-main);
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -29,31 +29,31 @@ header:before {
 }
 
 header h1 {
-  font-family: "Cinzel Decorative", "Georgia", "Times New Roman", serif;
-  color: tan;
+  font-family: var(--font-heading);
+  color: var(--accent);
 }
 
 header span {
-  font-family: "Quattrocento", "Georgia", "Times", serif;
-  color: rgb(140, 146, 167);
+  font-family: var(--font-body);
+  color: var(--secondary-text);
 }
 
 header hr {
-  border-color: tan;
+  border-color: var(--accent);
   margin-top: 2vh;
 }
 
 header h2 {
-  color: white;
+  color: var(--text);
   font-weight: 400;
-  font-family: "Cinzel", "Baskerville", "Times New Roman", serif;
+  font-family: var(--font-subheading);
   margin-top: 2vh;
 }
 
 header p {
-  font-family: "Quattrocento", "Georgia", "Times", serif;
+  font-family: var(--font-body);
   text-align: center;
-  color: rgb(140, 146, 167);
+  color: var(--secondary-text);
 }
 
 .hero-btns {
@@ -68,8 +68,8 @@ header a {
   justify-content: center;
   align-items: center;
   text-wrap: nowrap;
-  font-family: "Cinzel", "Baskerville", "Times New Roman", serif;
-  border-radius: 10px;
+  font-family: var(--font-subheading);
+  border-radius: var(--border-radius);
   @media (hover: hover) {
     &:hover {
       filter: brightness(110%);
@@ -85,26 +85,26 @@ header a {
     transform: scale(0.95);
   }
   &:nth-of-type(1) {
-    box-shadow: -3px 5px 10px black;
-    background-color: tan;
-    color: rgb(11, 14, 26);
+    box-shadow: var(--shadow-btn);
+    background-color: var(--accent);
+    color: var(--primary-bg);
   }
   &:nth-of-type(2) {
-    box-shadow: 3px 5px 10px black;
-    color: tan;
-    border: 2px tan solid;
+    box-shadow: var(--shadow-btn-alt);
+    color: var(--accent);
+    border: 2px var(--accent) solid;
   }
 }
 
 .attention-arrow {
-  color: tan;
+  color: var(--accent);
   transform: rotate(135deg);
   animation: bounce 2s ease-in-out infinite;
 }
 
 @media (orientation: portrait) {
   header:before {
-    background-image: url("Images/hero-portrait.png");
+    background-image: url("Images/hero-portrait.webp");
   }
   header h1 {
     font-size: clamp(3rem, 7vh, 6rem);
@@ -157,11 +157,11 @@ header a {
 
 @media (orientation: landscape) {
   header:before {
-    background-image: url("Images/hero-landscape.png");
+    background-image: url("Images/hero-landscape.webp");
   }
   header h1 {
     font-size: clamp(3rem, 8vw, 6rem);
-    margin-top: 13vh;
+    margin-top: 10vh;
   }
 
   header span {
@@ -203,7 +203,7 @@ header a {
 }
 @media (min-width: 500px) and (max-width: 1400px) and (orientation: portrait) and (hover:none) {
   header:before {
-    background-image: url("Images/hero-portrait.png");
+    background-image: url("Images/hero-portrait.webp");
   }
   header h1 {
     font-size: clamp(3rem, 9vh, 6rem);
@@ -246,11 +246,12 @@ header a {
 
   .attention-arrow {
     height: 6vh;
+    margin-bottom: 8vh;
   }
 }
 @media (min-width: 500px) and (max-width: 1400px) and (min-height: 500px) and (orientation: landscape) and (hover:none) {
   header:before {
-    background-image: url("Images/hero-landscape.png");
+    background-image: url("Images/hero-landscape.webp");
   }
   header h1 {
     font-size: clamp(3rem, 12vw, 8rem);
