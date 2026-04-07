@@ -214,7 +214,7 @@ header a {
     margin-top: -8.5vh;
   }
 }
-@media (min-width: 768px) and (max-width: 1025px) and (orientation: portrait) {
+@media (min-width: 500px) and (max-width: 1025px) and (orientation: portrait) {
   header:before {
     background-image: url("Images/hero-portrait.png");
   }
@@ -248,11 +248,11 @@ header a {
     gap: 6vh;
     flex-direction: column;
     margin-top: 6vh;
-    margin-bottom: 4vh;
+    margin-bottom: 3vh;
   }
 
   header a {
-    font-size: clamp(1.1rem, 4vh, 2rem);
+    font-size: clamp(1.1rem, 4vh, 4rem);
     width: max(180px, 70vw);
     height: max(50px, 8vh);
   }
@@ -261,8 +261,46 @@ header a {
     height: 6vh;
   }
 }
-@media (min-width: 768px) and (max-width: 1025px) and (orientation: landscape) {
-  header > * {
-    display: none;
+@media (min-width: 700px) and (max-width: 1400px) and (min-height:500px) and (orientation: landscape) {
+  header:before {
+    background-image: url("Images/hero-landscape.png");
+  }
+  header h1 {
+    font-size: clamp(3rem, 12vw, 8rem);
+    margin-top: 10vh;
+  }
+
+  header span {
+    font-size: clamp(1.2rem, 4vw, 2.8rem);
+    margin-top: 1vh;
+  }
+  header hr {
+    width: 70vw;
+  }
+
+  header h2 {
+    font-size: clamp(1.2rem, 5vw, 3.8rem);
+  }
+
+  header p {
+    font-size: clamp(0.8rem, 3vw, 1.8rem);
+    margin-top: 1vh;
+    width: max(70dvw, 315px);
+  }
+
+  .hero-btns {
+    margin-top: 3vh;
+    gap: 10vw;
+    margin-top: 6vh;
+  }
+
+  header a {
+    font-size: clamp(1.1rem, 4vw, 2.2rem);
+    width: max(180px, 30vw);
+    height: max(50px, 10vh);
+  }
+  .attention-arrow {
+    height: 8vh;
+    margin-top: -8.5vh;
   }
 }
