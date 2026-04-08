@@ -33,54 +33,91 @@ main:before {
   }
 
   main h3 {
-    font-size:2vw;
+    font-size: 2vw;
     font-family: var(--font-subheading);
     color: var(--accent);
   }
 
-  
   main p,
-  span {
+  main span {
     font-size: 2vw;
     color: var(--secondary-text);
     font-family: var(--font-body);
   }
-
+  #about-section {
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+    
+  }
   #skill-grouping {
-    display:grid;
-    grid-template-columns: 40dvw, 40dvw;
-    grid-template-rows: 4vw 25vh 25vh;
+    display: grid;
+    grid-template-columns: 35vw 35vw;
+    grid-template-rows: fit-content;
     grid-template-areas:
-      "header header"
       "skill1 skill2"
       "skill3 skill4";
+      align-items:center;
+    gap:3vw;
+    margin: 8vh 0;
   }
 
-  .skills {
+  .skill{
     width: 35vw;
     height: 20vh;
-    background-color:rgb(18, 24, 39);
-    border-radius:var(--border-radius);
-    border: 1px solid var(--accent);
-    &hr {
-      border:1px solid var(accent);
-    }
+    background-color: rgb(18, 24, 39);
+    border-radius: var(--border-radius);
+    border: 1px solid tan;
   }
-  .skills:nth-of-type(1){
-    grid-area:skill1;
+  main .skill.header, .about.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--primary-bg);
+    border-bottom: 1px solid var(--accent);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    height: 5vh;
   }
-  .skills:nth-of-type(2){
-    grid-area:skill2;
+  main .skill.content {
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  .skills:nth-of-type(3){
-    grid-area:skill3;
+  .skill span {
+    text-wrap: pretty;
   }
-  .skills:nth-of-type(4){
-    grid-area:skill4;
+  #id-section p,
+  #id-section h2 {
+    grid-area: header;
   }
-  #id-section 
-  #id-section p, #id-section h2 {
-    grid-area:header;
+  .skill:nth-of-type(1) {
+    grid-area: skill1;
+  }
+  .skill:nth-of-type(2) {
+    grid-area: skill2;
+  }
+  .skill:nth-of-type(3) {
+    grid-area: skill3;
+  }
+  .skill:nth-of-type(4) {
+    grid-area: skill4;
+  }
+  
+  .about.text {
+    width: 73vw;
+    height: 30vh;
+    background-color: rgb(18, 24, 39);
+    border-radius: var(--border-radius);
+    border: 1px solid tan;
+    margin-bottom:5vh;
+  }
+   main .about.content {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
 }

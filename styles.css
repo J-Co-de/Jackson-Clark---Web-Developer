@@ -13,7 +13,7 @@
   --shadow: black;
 
   /* Shadows */
-  --shadow-main: 3px 5px 10px rgba(0, 0, 0, 0.5);
+  --shadow-main: 0px 15px 10px rgba(0, 0, 0, 0.5);
   --shadow-btn: -3px 5px 10px var(--shadow);
   --shadow-btn-alt: 3px 5px 10px var(--shadow);
 
