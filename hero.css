@@ -1,14 +1,10 @@
 header {
   position: relative;
-  height: calc(var(--vh) * 100);
+  height: 100dvh;
   width: 100dvw;
   background-color: var(--primary-bg);
   box-shadow: var(--shadow-main);
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 header:before {
@@ -16,8 +12,8 @@ header:before {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100dvw;
+  height: 100dvh;
   opacity: 0.1;
   z-index: -1;
   pointer-events: none;
@@ -25,7 +21,16 @@ header:before {
   background-position: center;
   background-size: cover;
 }
-
+.hero.content {
+  position: absolute;
+  bottom: 0;
+  height: 85vh;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 header h1 {
   font-family: var(--font-heading);
   color: var(--accent);
@@ -104,13 +109,15 @@ header a {
   header:before {
     background-image: url("Images/hero-portrait.webp");
   }
-  header h1 {
-    font-size: clamp(3rem, 7vh, 6rem);
-    margin-top: 14vh;
+  .hero.content {
+    height: 90vh;
+  }
+  .hero.content h1 {
+    font-size: clamp(3rem, 8vh, 9rem);
   }
 
   header span {
-    font-size: clamp(1rem, 4vh, 1.9rem);
+    font-size: clamp(1rem, 4vh, 6rem);
     margin-top: 3vh;
     @media screen and (max-height: 450px) {
       display: none;
@@ -122,37 +129,38 @@ header a {
   }
 
   header hr {
-    width: 80vw;
+    width: 70vw;
+    margin-top: 2vh;
   }
 
   header h2 {
-    font-size: clamp(1rem, 4vh, 1.7rem);
+    font-size: clamp(1rem, 4vh, 6rem);
   }
 
   header p {
-    font-size: clamp(0.8rem, 2.5vh, 1.2rem);
+    font-size: clamp(0.8rem, 2.8vh, 2.5rem);
     margin-top: 4vh;
-    width: max(60vw, 315px);
+    width: max(80vw, 315px);
   }
 
   .hero-btns {
     gap: 4vh;
     flex-direction: column;
-    margin-top: 4vh;
+    margin-top: 6vh;
     margin-bottom: 2vh;
   }
 
   header a {
-    font-size: clamp(1.1rem, 4vh, 1.5rem);
+    font-size: clamp(1.1rem, 4vh, 3rem);
     width: max(180px, 70vw);
     height: max(50px, 8vh);
   }
 
   .attention-arrow {
-    position:absolute;
-    bottom:3vh;
+    position: absolute;
+    bottom: 3vh;
     height: 6vh;
-    align-self:center;
+    align-self: center;
   }
 }
 
@@ -160,141 +168,76 @@ header a {
   header:before {
     background-image: url("Images/hero-landscape.webp");
   }
-  header h1 {
-    font-size: clamp(3rem, 8vw, 6rem);
-    margin-top: 10vh;
+  .hero.content {
+    height: 85vh;
+  }
+  .hero.content h1 {
+    font-size: clamp(3rem, 8vw, 9rem);
   }
 
-  header span {
-    font-size: clamp(1.2rem, 2.5vw, 3rem);
+  .hero.content span {
+    font-size: clamp(1.2rem, 4vw, 2.75rem);
     margin-top: 1vh;
-    @media (max-height: 450px) {
-      display: none;
-    }
   }
 
-  header hr {
-    width: 60vw;
+  .hero.content hr {
+    width: 65vw;
   }
 
-  header h2 {
+  .hero.content h2 {
     font-size: clamp(1.2rem, 4vw, 4rem);
+    @media (max-height: 450px) {
+      margin-bottom: 3vh;
+    }
   }
 
-  header p {
-    font-size: clamp(0.8rem, 1.8vw, 2rem);
-    width: max(60dvw, 315px);
+  .hero.content p {
+    font-size: clamp(0.8rem, 3.5vw, 1.8rem);
+    margin-top: 1vh;
+    width: max(80dvw, 315px);
     @media (max-height: 450px) {
       display: none;
     }
   }
 
   .hero-btns {
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    width: 60vw;
-    margin-top: 3vh;
-    margin-top: 6vh;
-  }
-
-  header a {
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
-    width: max(180px, 20vw);
-    height: max(50px, 6vh);
-  }
-  .attention-arrow {
-    height: max(50px, 6vh);
-  }
-}
-@media (min-width: 500px) and (max-width: 1400px) and (orientation: portrait) and (hover:none) {
-  header:before {
-    background-image: url("Images/hero-portrait.webp");
-  }
-  header h1 {
-    font-size: clamp(3rem, 9vh, 6rem);
-  }
-
-  header span {
-    font-size: clamp(1rem, 4vh, 3rem);
-    margin-top: 2vh;
-    & > span {
-      display: inline;
-    }
-  }
-
-  header hr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     width: 80vw;
-  }
-
-  header h2 {
-    font-size: clamp(1rem, 4vh, 3rem);
-  }
-
-  header p {
-    font-size: clamp(0.8rem, 2.5vh, 2rem);
-    width: max(80dvw, 315px);
-    margin-top: 4vh;
-  }
-
-  .hero-btns {
-    gap: 6vh;
-    flex-direction: column;
-    margin-top: 6vh;
-    margin-bottom: 3vh;
-  }
-
-  header a {
-    font-size: clamp(1.1rem, 4vh, 4rem);
-    width: max(180px, 70vw);
-    height: max(50px, 8vh);
-  }
-
-  .attention-arrow {
-    height: 6vh;
-    margin-bottom: 8vh;
-  }
-}
-@media (min-width: 500px) and (max-width: 1500px) and (min-height: 500px) and (orientation: landscape) and (hover:none) {
-  header:before {
-    background-image: url("Images/hero-landscape.webp");
-  }
-  header h1 {
-    font-size: clamp(3rem, 12vw, 8rem);
-    margin-top: 10vh;
-  }
-
-  header span {
-    font-size: clamp(1.2rem, 4vw, 2.8rem);
-    margin-top: 1vh;
-  }
-  header hr {
-    width: 70vw;
-  }
-
-  header h2 {
-    font-size: clamp(1.2rem, 5vw, 3.8rem);
-  }
-
-  header p {
-    font-size: clamp(0.8rem, 3vw, 1.8rem);
-    margin-top: 1vh;
-    width: max(70dvw, 315px);
-  }
-
-  .hero-btns {
+    gap: 2vw;
     margin-top: 3vh;
-    gap: 10vw;
-    margin-top: 6vh;
+    margin-bottom: 6vh;
   }
 
-  header a {
-    font-size: clamp(1.1rem, 4vw, 2.2rem);
+  .hero.content a {
+    font-size: clamp(1.1rem, 4vw, 4rem);
     width: max(180px, 30vw);
-    height: max(50px, 10vh);
+    height: max(50px, 12vh);
   }
   .attention-arrow {
-    height: 8vh;
-    margin-top: -8.5vh;
+    height: max(50px, 12vh);
+  }
+  @media (min-height: 610px) {
+    .hero.content h1 {
+      font-size: clamp(3rem, 10vw, 9rem);
+    }
+    .hero.content span {
+      margin-top: 2vh;
+      margin-bottom: 1vh;
+    }
+    .hero.content p {
+      font-size: clamp(0.8rem, 3.5vw, 2.2rem);
+      margin-top: 2vh;
+    }
+    .hero.content .hero-btns {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 80vw;
+      gap: 2vw;
+      margin-top: 7vh;
+      margin-bottom: 6vh;
+    }
   }
 }

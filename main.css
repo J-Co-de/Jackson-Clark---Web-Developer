@@ -30,7 +30,7 @@ main:before {
     font-size: 7vw;
     font-family: var(--font-heading);
     color: var(--text);
-    padding-bottom:2vh
+    padding-bottom: 2vh;
   }
 
   main h3 {
@@ -46,11 +46,10 @@ main:before {
     font-family: var(--font-body);
   }
   #about-section {
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    align-items:center;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
   }
   #skill-grouping {
     display: grid;
@@ -59,19 +58,20 @@ main:before {
     grid-template-areas:
       "skill1 skill2"
       "skill3 skill4";
-      align-items:center;
-    gap:3vw;
+    align-items: center;
+    gap: 3vw;
     margin: 8vh 0;
   }
 
-  .skill{
+  .skill {
     width: 35vw;
     height: 20vh;
     background-color: rgb(18, 24, 39);
     border-radius: var(--border-radius);
     border: 1px solid tan;
   }
-  main .skill.header, .about.header{
+  main .skill.header,
+  .about.header {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -105,20 +105,49 @@ main:before {
   .skill:nth-of-type(4) {
     grid-area: skill4;
   }
-  
+
   .about.text {
     width: 73vw;
     height: 30vh;
     background-color: rgb(18, 24, 39);
     border-radius: var(--border-radius);
     border: 1px solid tan;
-    margin-bottom:5vh;
+    margin-bottom: 5vh;
   }
-   main .about.content {
+  main .about.content {
     height: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  
+  .stat.grouping {
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+  }
+  .stat.icon {
+    width: 16vw;
+    height: 30vh;
+    background-color: rgb(18, 24, 39);
+    border-radius: var(--border-radius);
+    border: 1px solid tan;
+    margin-bottom: 5vh;
+  }
+  .stat.icon h3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--primary-bg);
+    border-bottom: 1px solid var(--accent);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    height: 10vh;
+  }
+    .stat.icon span {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align:center;
+    padding:5vh;
+  }
 }

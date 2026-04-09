@@ -15,12 +15,11 @@ nav .logo {
   flex-direction: row;
   align-items: center;
   width: fit-content;
-  gap: 2dvw;
+  gap: 2vw;
   color: var(--accent);
   font-weight: bold;
   font-family: var(--font-heading);
   cursor: default;
-
 }
 
 .logo svg {
@@ -32,7 +31,7 @@ nav .logo {
     height: 10dvh;
   }
   nav .logo {
-    left: 6dvw;
+    left: 6vw;
   }
   .logo span {
     display: none;
@@ -63,10 +62,10 @@ nav .logo {
 }
 @media (orientation: landscape) {
   nav {
-    height: min(10vw, 15vh);
+    height: 15dvh;
   }
   nav .logo {
-    left: 3dvw;
+    left: 3vw;
   }
   .logo span {
     font-size: 3vw;
@@ -76,7 +75,7 @@ nav .logo {
   }
   nav ul {
     position: absolute;
-    right: 3dvw;
+    right: 3vw;
     color: white;
     list-style: none;
   }
@@ -85,18 +84,18 @@ nav .logo {
   }
   nav li {
     display: inline;
-    padding: 3dvw;
+    padding: 1.5vw;
   }
   nav a {
     position: relative;
     display: inline-block;
     transition: color 0.3s ease;
     font-family: var(--font-subheading);
-    font-size: 1.75dvw;
+    font-size: 2.5vw;
     cursor: pointer;
   }
   nav .slash {
-    font-size: 1.75dvw;
+    font-size: 1.75vw;
   }
   nav .norm-nav {
     @media (hover: hover) {
