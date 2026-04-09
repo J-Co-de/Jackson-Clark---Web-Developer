@@ -30,6 +30,7 @@ main:before {
     font-size: 7vw;
     font-family: var(--font-heading);
     color: var(--text);
+    padding-bottom:2vh
   }
 
   main h3 {
