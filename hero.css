@@ -1,7 +1,6 @@
 header {
   position: relative;
-  min-height: 100lvh;
-  height:100svh;
+  height:100dvh;
   width: 100dvw;
   background-color: var(--primary-bg);
   box-shadow: var(--shadow-main);
@@ -137,7 +136,7 @@ header a {
   }
 
   .hero-btns {
-    gap: 6vh;
+    gap: 4vh;
     flex-direction: column;
     margin-top: 4vh;
     margin-bottom: 2vh;
@@ -150,7 +149,10 @@ header a {
   }
 
   .attention-arrow {
+    position:absolute;
+    bottom:3vh;
     height: 6vh;
+    align-self:center;
   }
 }
 
@@ -182,11 +184,17 @@ header a {
   header p {
     font-size: clamp(0.8rem, 1.8vw, 2rem);
     width: max(60dvw, 315px);
+    @media (max-height: 450px) {
+      display: none;
+    }
   }
 
   .hero-btns {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    width: 60vw;
     margin-top: 3vh;
-    gap: 10vw;
     margin-top: 6vh;
   }
 
@@ -196,8 +204,7 @@ header a {
     height: max(50px, 6vh);
   }
   .attention-arrow {
-    height: 4vw;
-    margin-top: -8.5vh;
+    height: max(50px, 6vh);
   }
 }
 @media (min-width: 500px) and (max-width: 1400px) and (orientation: portrait) and (hover:none) {
