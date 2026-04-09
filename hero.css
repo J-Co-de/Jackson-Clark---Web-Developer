@@ -196,7 +196,7 @@ header a {
     height: max(50px, 6vh);
   }
   .attention-arrow {
-    height: 8vh;
+    height: 4vw;
     margin-top: -8.5vh;
   }
 }
