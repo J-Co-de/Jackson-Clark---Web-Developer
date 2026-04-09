@@ -1,6 +1,6 @@
 header {
   position: relative;
-  min-height: 500px;
+  min-height: 900px;
   height:100svh;
   width: 100dvw;
   background-color: var(--primary-bg);
