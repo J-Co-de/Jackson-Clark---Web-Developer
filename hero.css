@@ -1,6 +1,7 @@
 header {
   position: relative;
-  height:100dvh;
+  min-height: 500px;
+  height:100svh;
   width: 100dvw;
   background-color: var(--primary-bg);
   box-shadow: var(--shadow-main);
