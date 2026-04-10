@@ -1,9 +1,14 @@
+/* -----------------------------
+   Imports
+   ----------------------------- */
 @import url("fonts.css");
 @import url("navbar.css");
 @import url("hero.css");
 @import url("main.css");
 
-/* CSS Custom Properties */
+/* -----------------------------
+   CSS Custom Properties
+   ----------------------------- */
 :root {
   /* Colors */
   --primary-bg: rgb(11, 14, 26);
@@ -26,6 +31,9 @@
   --font-body: "Quattrocento", "Georgia", "Times", serif;
 }
 
+/* -----------------------------
+   Global reset
+   ----------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -36,6 +44,10 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
+/* -----------------------------
+   Utility classes
+   ----------------------------- */
 .norm-curs {
   cursor: default;
 }
@@ -44,8 +56,10 @@ html {
   -ms-user-select: none;      /* IE 10 and older */
   user-select: none;         /* Standard syntax */
 }
-/* ^ General CSS ^ */
 
+/* -----------------------------
+   Animations
+   ----------------------------- */
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);

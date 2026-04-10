@@ -1,3 +1,6 @@
+/* -----------------------------
+   Hero section base styles
+   ----------------------------- */
 header {
   position: relative;
   height: 100dvh;
@@ -7,7 +10,7 @@ header {
   z-index: 1;
 }
 
-header:before {
+header::before {
   content: "";
   position: absolute;
   top: 0;
@@ -21,6 +24,7 @@ header:before {
   background-position: center;
   background-size: cover;
 }
+
 .hero.content {
   position: absolute;
   bottom: 0;
@@ -31,6 +35,10 @@ header:before {
   justify-content: center;
   align-items: center;
 }
+
+/* -----------------------------
+   Hero typography
+   ----------------------------- */
 header h1 {
   font-family: var(--font-heading);
   color: var(--accent);
@@ -59,6 +67,9 @@ header p {
   color: var(--secondary-text);
 }
 
+/* -----------------------------
+   Hero buttons
+   ----------------------------- */
 .hero-btns {
   display: flex;
 }
@@ -73,45 +84,58 @@ header a {
   text-wrap: nowrap;
   font-family: var(--font-subheading);
   border-radius: var(--border-radius);
-  @media (hover: hover) {
-    &:hover {
-      filter: brightness(110%);
-      transform: scale(0.95);
-      cursor: pointer;
-      box-shadow: none;
-    }
-    &:focus {
-      filter: brightness(110%);
-    }
+}
+
+header a:nth-of-type(1) {
+  box-shadow: var(--shadow-btn);
+  background-color: var(--accent);
+  color: var(--primary-bg);
+}
+
+header a:nth-of-type(2) {
+  box-shadow: var(--shadow-btn-alt);
+  color: var(--accent);
+  border: 2px var(--accent) solid;
+}
+
+header a:active {
+  transform: scale(0.95);
+}
+
+@media (hover: hover) {
+  header a:hover,
+  header a:focus {
+    filter: brightness(110%);
   }
-  &:active {
+
+  header a:hover {
     transform: scale(0.95);
-  }
-  &:nth-of-type(1) {
-    box-shadow: var(--shadow-btn);
-    background-color: var(--accent);
-    color: var(--primary-bg);
-  }
-  &:nth-of-type(2) {
-    box-shadow: var(--shadow-btn-alt);
-    color: var(--accent);
-    border: 2px var(--accent) solid;
+    cursor: pointer;
+    box-shadow: none;
   }
 }
 
+/* -----------------------------
+   Attention arrow
+   ----------------------------- */
 .attention-arrow {
   color: var(--accent);
   transform: rotate(135deg);
   animation: bounce 2s ease-in-out infinite;
 }
 
+/* -----------------------------
+   Portrait layout
+   ----------------------------- */
 @media (orientation: portrait) {
-  header:before {
+  header::before {
     background-image: url("Images/hero-portrait.webp");
   }
+
   .hero.content {
     height: 90vh;
   }
+
   .hero.content h1 {
     font-size: clamp(3rem, 8vh, 9rem);
   }
@@ -119,11 +143,14 @@ header a {
   header span {
     font-size: clamp(1rem, 4vh, 6rem);
     margin-top: 3vh;
-    @media screen and (max-height: 450px) {
-      display: none;
-    }
+  }
 
-    & > span {
+  header span > span {
+    display: none;
+  }
+
+  @media screen and (max-height: 450px) {
+    header span {
       display: none;
     }
   }
@@ -164,13 +191,18 @@ header a {
   }
 }
 
+/* -----------------------------
+   Landscape layout
+   ----------------------------- */
 @media (orientation: landscape) {
-  header:before {
+  header::before {
     background-image: url("Images/hero-landscape.webp");
   }
+
   .hero.content {
     height: 85vh;
   }
+
   .hero.content h1 {
     font-size: clamp(3rem, 8vw, 9rem);
   }
@@ -186,7 +218,10 @@ header a {
 
   .hero.content h2 {
     font-size: clamp(1.2rem, 4vw, 4rem);
-    @media (max-height: 450px) {
+  }
+
+  @media (max-height: 450px) {
+    .hero.content h2 {
       margin-bottom: 3vh;
     }
   }
@@ -195,7 +230,10 @@ header a {
     font-size: clamp(0.8rem, 3.5vw, 1.8rem);
     margin-top: 1vh;
     width: max(80dvw, 315px);
-    @media (max-height: 450px) {
+  }
+
+  @media (max-height: 450px) {
+    .hero.content p {
       display: none;
     }
   }
@@ -215,21 +253,26 @@ header a {
     width: max(180px, 30vw);
     height: max(50px, 12vh);
   }
+
   .attention-arrow {
     height: max(50px, 12vh);
   }
+
   @media (min-height: 610px) {
     .hero.content h1 {
       font-size: clamp(3rem, 10vw, 9rem);
     }
+
     .hero.content span {
-      margin-top: 2vh;
+      margin-top: 0.5vh;
       margin-bottom: 1vh;
     }
+
     .hero.content p {
       font-size: clamp(0.8rem, 3.5vw, 2.2rem);
       margin-top: 2vh;
     }
+
     .hero.content .hero-btns {
       display: flex;
       flex-direction: row;

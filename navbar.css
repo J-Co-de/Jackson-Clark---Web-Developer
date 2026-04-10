@@ -1,3 +1,6 @@
+/* -----------------------------
+   Navbar base styles
+   ----------------------------- */
 nav {
   position: fixed;
   width: 100dvw;
@@ -9,6 +12,7 @@ nav {
   border-bottom: 1px solid rgba(210, 180, 140, 0.4);
   z-index: 2147483647;
 }
+
 nav .logo {
   position: absolute;
   display: flex;
@@ -26,19 +30,26 @@ nav .logo {
   transition: transform 0.5s ease;
 }
 
+/* -----------------------------
+   Portrait layout
+   ----------------------------- */
 @media (orientation: portrait) {
   nav {
     height: 10dvh;
   }
+
   nav .logo {
     left: 6vw;
   }
+
   .logo span {
     display: none;
   }
+
   .logo svg {
     width: 6vh;
   }
+
   nav ul {
     display: none;
   }
@@ -51,41 +62,53 @@ nav .logo {
     color: var(--accent);
     border: none;
     background-color: transparent;
-    &:active {
-      transform: scale(0.95);
-    }
+  }
+
+  nav .hamburger:active {
+    transform: scale(0.95);
   }
 
   nav .hamburger svg {
     width: 6vh;
   }
 }
+
+/* -----------------------------
+   Landscape layout
+   ----------------------------- */
 @media (orientation: landscape) {
   nav {
     height: 15dvh;
   }
+
   nav .logo {
     left: 3vw;
   }
+
   .logo span {
     font-size: 3vw;
   }
+
   .logo svg {
     width: 3vw;
   }
+
   nav ul {
     position: absolute;
     right: 3vw;
     color: white;
     list-style: none;
   }
+
   nav .hamburger {
     display: none;
   }
+
   nav li {
     display: inline;
     padding: 1.5vw;
   }
+
   nav a {
     position: relative;
     display: inline-block;
@@ -94,22 +117,20 @@ nav .logo {
     font-size: 2.5vw;
     cursor: pointer;
   }
+
   nav .slash {
     font-size: 1.75vw;
   }
-  nav .norm-nav {
-    @media (hover: hover) {
-      &:hover {
-        color: rgb(230, 180, 140);
-      }
-    }
-    &:focus {
-      color: rgb(230, 180, 140);
-    }
-    &:active {
-      transform: scale(0.95);
-    }
+
+  nav .norm-nav:focus,
+  nav .norm-nav:hover {
+    color: rgb(230, 180, 140);
   }
+
+  nav .norm-nav:active {
+    transform: scale(0.95);
+  }
+
   nav .norm-nav::after {
     content: "";
     position: absolute;
@@ -122,32 +143,31 @@ nav .logo {
     transform-origin: left;
     transition: transform 0.3s ease;
   }
+
   .resume-nav {
     color: var(--primary-bg);
     background-color: var(--accent);
     padding: 0.5rem;
     border-radius: 8px;
     font-weight: bold;
-    @media (hover: hover) {
-      &:hover {
-        filter: brightness(110%);
-      }
-
-      &:focus {
-        filter: brightness(110%);
-      }
-    }
-    &:active {
-      transform: scale(0.95);
-    }
   }
+
+  .resume-nav:active {
+    transform: scale(0.95);
+  }
+
   @media (hover: hover) {
     nav:hover .logo svg {
       transform: rotate(-15deg);
     }
+
     nav .norm-nav:hover::after {
       transform: scaleX(1);
     }
-    /* ^ Hover CSS ^ */
+
+    nav .resume-nav:hover,
+    nav .resume-nav:focus {
+      filter: brightness(110%);
+    }
   }
 }

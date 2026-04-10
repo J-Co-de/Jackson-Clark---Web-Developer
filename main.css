@@ -1,3 +1,6 @@
+/* -----------------------------
+   Main layout and background
+   ----------------------------- */
 main {
   position: relative;
   height: fit-content;
@@ -10,7 +13,8 @@ main {
   align-items: center;
   text-align: center;
 }
-main:before {
+
+main::before {
   content: "";
   position: absolute;
   top: 0;
@@ -25,130 +29,187 @@ main:before {
   background-position: center;
   background-size: cover;
 }
+
 @media (orientation: landscape) {
+  /* -----------------------------
+     Typography
+     ----------------------------- */
   main h2 {
     font-size: 7vw;
     font-family: var(--font-heading);
-    color: var(--text);
+    color: #d8dde3;
     padding-bottom: 2vh;
   }
 
   main h3 {
-    font-size: 2vw;
+    font-size: 2.8vh;
     font-family: var(--font-subheading);
     color: var(--accent);
   }
 
   main p,
   main span {
-    font-size: 2vw;
     color: var(--secondary-text);
+    font-size: 2vw;
     font-family: var(--font-body);
   }
+
+  /* -----------------------------
+     Skill grouping
+     ----------------------------- */
+  #skill-grouping {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 3vw;
+    margin: 8vh 0;
+  }
+
+  .skill {
+    width: 17vw;
+    background-color: rgb(18, 24, 39);
+    border-radius: var(--border-radius);
+    border: 1px solid tan;
+    flex: 1;
+  }
+
+  main .skill.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--primary-bg);
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid var(--accent);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    height: 20%;
+  }
+
+  main .skill.content {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    padding: 1vh 0;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    background: transparent;
+    border: none;
+  }
+
+  .skill ul {
+    color: var(--secondary-text);
+    list-style-type: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    font-size: 2vw;
+    line-height: 6vh;
+    text-align: center;
+  }
+  /* -----------------------------
+     About section layout
+     ----------------------------- */
   #about-section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
   }
-  #skill-grouping {
-    display: grid;
-    grid-template-columns: 35vw 35vw;
-    grid-template-rows: fit-content;
-    grid-template-areas:
-      "skill1 skill2"
-      "skill3 skill4";
-    align-items: center;
+  #about-grouping {
+    display:flex;
+    flex-direction:row;
     gap: 3vw;
-    margin: 8vh 0;
   }
-
-  .skill {
-    width: 35vw;
-    height: 20vh;
-    background-color: rgb(18, 24, 39);
-    border-radius: var(--border-radius);
-    border: 1px solid tan;
-  }
-  main .skill.header,
-  .about.header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--primary-bg);
-    border-bottom: 1px solid var(--accent);
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
-    height: 5vh;
-  }
-  main .skill.content {
-    height: 15vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .skill span {
-    text-wrap: pretty;
-  }
-  #id-section p,
-  #id-section h2 {
-    grid-area: header;
-  }
-  .skill:nth-of-type(1) {
-    grid-area: skill1;
-  }
-  .skill:nth-of-type(2) {
-    grid-area: skill2;
-  }
-  .skill:nth-of-type(3) {
-    grid-area: skill3;
-  }
-  .skill:nth-of-type(4) {
-    grid-area: skill4;
-  }
-
   .about.text {
-    width: 73vw;
-    height: 30vh;
+    width: 35vw;
+    height:fit-content;
     background-color: rgb(18, 24, 39);
     border-radius: var(--border-radius);
     border: 1px solid tan;
     margin-bottom: 5vh;
+    
+    flex-direction:row;
   }
+  main .about.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--primary-bg);
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid var(--accent);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    height: 20%;
+  }
+
   main .about.content {
-    height: 25vh;
+    height: 50vh;
+    padding: 3vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+  .about.content p{
+  font-size:2vw;
+  line-height: 5vh;
+  }
+
+
+
+  .skill:nth-of-type(1) {
+    grid-area: skill1;
+  }
+
+  .skill:nth-of-type(2) {
+    grid-area: skill2;
+  }
+
+  .skill:nth-of-type(3) {
+    grid-area: skill3;
+  }
+
+  .skill:nth-of-type(4) {
+    grid-area: skill4;
+  }
+
+  /* -----------------------------
+     Stats cards
+     ----------------------------- */
   .stat.grouping {
     display: flex;
     flex-direction: row;
     gap: 3vw;
   }
-  .stat.icon {
-    width: 16vw;
-    height: 30vh;
+  main .stat.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--primary-bg);
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid var(--accent);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    height: 40%;
+  }
+  .stat.card {
+    width: 17vw;
+    height: 20vh;
     background-color: rgb(18, 24, 39);
     border-radius: var(--border-radius);
     border: 1px solid tan;
     margin-bottom: 5vh;
   }
-  .stat.icon h3 {
+
+
+
+  .stat.content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--primary-bg);
-    border-bottom: 1px solid var(--accent);
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
-    height: 10vh;
+    text-align: center;
+    height: 60%;
+    font-size: clamp(2rem, 6vh, 3.5vw);
   }
-    .stat.icon span {
-    height: 20vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align:center;
-    padding:5vh;
-  }
-  /*shh*/
 }
