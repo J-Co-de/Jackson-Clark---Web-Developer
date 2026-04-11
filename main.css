@@ -1,15 +1,15 @@
-/* -----------------------------
-   Main layout and background
-   ----------------------------- */
+/* -----------------------------------------------------------
+   1. Base Layout & Typography
+   ----------------------------------------------------------- */
 main {
   position: relative;
+  width: 100vw;
   height: fit-content;
   background-color: rgb(11, 14, 26);
   z-index: 0;
   padding: 5vh 10vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
 }
@@ -17,132 +17,180 @@ main {
 main hr {
   border-color: var(--accent);
 }
+
 h2 {
-  font-size:4vw;
-  font-family:var(--font-heading);
-  color:var(--text);
-  margin-top:15vh;
+  font-size: 4vw;
+  font-family: var(--font-heading);
+  color: var(--text);
+  margin-top: 15vh;
 }
+
 h3 {
-  font-family:var(--font-subheading);
+  font-family: var(--font-subheading);
+  font-size: 2.5vw;
+  color: var(--text);
 }
-p,span {
-  font-family:var(--font-body)
+
+p,
+span {
+  font-family: var(--font-body);
 }
+
+/* -----------------------------------------------------------
+   2. Desktop / Landscape Grid Layout
+   ----------------------------------------------------------- */
 @media (orientation: landscape) {
   hr {
-    width:70vw;
-    
+    width: 70vw;
   }
-  #proficiency-grid{
-    display: grid;
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-    "front frontp"
-    "backp back"
-    "arch archp"
-    "devopsp devops";
-    gap:5vw;
-    margin-top:15vh;
-  }
-  .proficiency.card {
-    width: 40vw;
-    padding:2vw;
-    height:30vh;
-    background-color:rgb(18, 21, 33);
-    border:1px solid var(--accent);
-    border-radius:5px;
-    display:grid;
-    grid-template-columns:0.3fr 1fr;
-    grid-template-rows:auto auto auto auto;
-    grid-template-areas: 
-    "icon header"
-    "icon skills"
-    "sub-text percentage"
-    "bar bar";
-  }
-  .proficiency.card svg{
-    grid-area:icon;
-    width:5vw;
-    justify-self:center;
-    align-self:center;
-    color:var(--accent);
-  }
-  .proficiency.card h3{
-    grid-area:header;
-    font-size:2.5vw;
-    align-self:center;
-    justify-content:center;
-    color:var(--text);
-  }
-  .proficiency.card > span:nth-of-type(1){
-    grid-area:skills;
-    font-size:2vw;
-    align-self:center;
-    justify-content:center;
-    color:var(--secondary-text);
-  }
-  .proficiency.card span:nth-of-type(2){
-    grid-area:sub-text;
-    padding-left:25%;
-    justify-self:start;
-    font-size:1.75vw;
-    color:var(--secondary-text);
-  }
-  .proficiency.card span:nth-of-type(3){
-    grid-area:percentage;
-    justify-self:end;
-    padding-right:10%;
-    font-size:1.75vw;
-    color:var(--secondary-text);
-  }
-  .proficiency.card .measure.bar {
-   grid-area:bar; 
-   height:10px;
-   width:90%;
-   background-color:var(--primary-bg);
-   justify-self:center;
-   border-radius:50px;
-   display:flex;
-   flex-direction:column;
-   justify-content:center;
-   align-items:start;
-   padding-left:3px;
-   padding-right:3px;
-  }
-  .proficiency.card .measure.fill {
-    position:relative;
-    
-    background-color:var(--accent);
-    
-    height:5px;
-    width:90%;
 
-    border-radius:50px;
+  #proficiency-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "front  frontp"
+      "backp  back"
+      "arch   archp"
+      "devopsp devops";
+    gap: 3vw;
+    margin-top: 15vh;
   }
-  .proficiency.card:nth-of-type(1) {
-    grid-area:front;
+
+  /* Shared Properties for Cards and Paragraphs */
+  .proficiency.card,
+  .proficiency.paragraph {
+    width: 40vw;
+    height: 30vh;
   }
-  .proficiency.paragraph:nth-of-type(1) {
-    grid-area:frontp;
+
+  /* -----------------------------
+     3. Card Styling
+     ----------------------------- */
+  .proficiency.card {
+    background-color: rgb(18, 21, 33);
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    padding: 1vw;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      "icon header"
+      "icon skills"
+      "sub-text percentage"
+      "bar bar";
   }
-  .proficiency.card:nth-of-type(2) {
-    grid-area:back;
+
+  .proficiency.card svg {
+    grid-area: icon;
+    width: 5vw;
+    place-self: center; /* Centers both align and justify */
+    color: var(--accent);
   }
-  .proficiency.paragraph:nth-of-type(2) {
-    grid-area:backp;
+
+  .proficiency.card h3 {
+    grid-area: header;
+    align-self: center;
   }
-  .proficiency.card:nth-of-type(3) {
-    grid-area:arch;
+
+  .proficiency.card span {
+    color: var(--secondary-text);
+    align-self: center;
   }
-  .proficiency.paragraph:nth-of-type(3) {
-    grid-area:archp;
+
+  .proficiency.card span:nth-of-type(1) {
+    grid-area: skills;
+    font-size: 2vw;
   }
-  .proficiency.card:nth-of-type(4) {
-    grid-area:devops;
+  .proficiency.card span:nth-of-type(2) {
+    grid-area: sub-text;
+    font-size: 1.75vw;
+    padding-left: 25%;
+    justify-self: start;
   }
-  .proficiency.paragraph:nth-of-type(4) {
-    grid-area:devopsp;
+  .proficiency.card span:nth-of-type(3) {
+    grid-area: percentage;
+    font-size: 1.75vw;
+    padding-right: 10%;
+    justify-self: end;
+  }
+
+  /* Progress Bar */
+  .measure.bar {
+    grid-area: bar;
+    height: fit-content;
+    width: 90%;
+    background-color: var(--accent);
+    border-radius: 50px;
+    place-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 1px;
+  }
+
+  .measure.fill {
+    background-color: var(--primary-bg);
+    height: 0;
+    border: rgb(39, 51, 100) 0.75vh dashed;
+    border-radius: 50px;
+    width: 80%;
+
+    /* Note: Adjust width per specific card via inline style or specific class */
+  }
+
+  /* -----------------------------
+     4. Paragraph Styling
+     ----------------------------- */
+  .proficiency.paragraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+  .proficiency.paragraph.left {
+    text-align: right;
+    padding-left:4vw;
+    border-left:2px tan solid;
+  }
+  .proficiency.paragraph.right {
+    text-align: left;
+    padding-right:4vw;
+    border-right:2px tan solid;
+  }
+
+  .proficiency.paragraph p {
+    color: var(--secondary-text);
+    font-size:clamp(0.45rem,2vw,3vh);
+    margin-top: 1vh;
+  }
+
+  /* -----------------------------
+     5. Grid Area Assignments
+     ----------------------------- */
+  .frontend.card {
+    grid-area: front;
+  }
+  .frontend.paragraph {
+    grid-area: frontp;
+  }
+  .backend.card {
+    grid-area: back;
+  }
+  .backend.paragraph {
+    grid-area: backp;
+  }
+  .architecture.card {
+    grid-area: arch;
+  }
+  .architecture.paragraph {
+    grid-area: archp;
+  }
+  .devops.card {
+    grid-area: devops;
+  }
+  .devops.paragraph {
+    grid-area: devopsp;
   }
 }
