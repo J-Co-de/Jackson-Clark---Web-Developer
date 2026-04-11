@@ -4,7 +4,7 @@
 main {
   position: relative;
   height: fit-content;
-  background-color:grey;
+  background-color: rgb(11, 14, 26);
   z-index: 0;
   padding: 5vh 10vw;
   display: flex;
@@ -14,8 +14,135 @@ main {
   text-align: center;
 }
 
-
-
+main hr {
+  border-color: var(--accent);
+}
+h2 {
+  font-size:4vw;
+  font-family:var(--font-heading);
+  color:var(--text);
+  margin-top:15vh;
+}
+h3 {
+  font-family:var(--font-subheading);
+}
+p,span {
+  font-family:var(--font-body)
+}
 @media (orientation: landscape) {
+  hr {
+    width:70vw;
+    
+  }
+  #proficiency-grid{
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "front frontp"
+    "backp back"
+    "arch archp"
+    "devopsp devops";
+    gap:5vw;
+    margin-top:15vh;
+  }
+  .proficiency.card {
+    width: 40vw;
+    padding:2vw;
+    height:30vh;
+    background-color:rgb(18, 21, 33);
+    border:1px solid var(--accent);
+    border-radius:5px;
+    display:grid;
+    grid-template-columns:0.3fr 1fr;
+    grid-template-rows:auto auto auto auto;
+    grid-template-areas: 
+    "icon header"
+    "icon skills"
+    "sub-text percentage"
+    "bar bar";
+  }
+  .proficiency.card svg{
+    grid-area:icon;
+    width:5vw;
+    justify-self:center;
+    align-self:center;
+    color:var(--accent);
+  }
+  .proficiency.card h3{
+    grid-area:header;
+    font-size:2.5vw;
+    align-self:center;
+    justify-content:center;
+    color:var(--text);
+  }
+  .proficiency.card > span:nth-of-type(1){
+    grid-area:skills;
+    font-size:2vw;
+    align-self:center;
+    justify-content:center;
+    color:var(--secondary-text);
+  }
+  .proficiency.card span:nth-of-type(2){
+    grid-area:sub-text;
+    padding-left:25%;
+    justify-self:start;
+    font-size:1.75vw;
+    color:var(--secondary-text);
+  }
+  .proficiency.card span:nth-of-type(3){
+    grid-area:percentage;
+    justify-self:end;
+    padding-right:10%;
+    font-size:1.75vw;
+    color:var(--secondary-text);
+  }
+  .proficiency.card .measure.bar {
+   grid-area:bar; 
+   height:10px;
+   width:90%;
+   background-color:var(--primary-bg);
+   justify-self:center;
+   border-radius:50px;
+   display:flex;
+   flex-direction:column;
+   justify-content:center;
+   align-items:start;
+   padding-left:3px;
+   padding-right:3px;
+  }
+  .proficiency.card .measure.fill {
+    position:relative;
+    
+    background-color:var(--accent);
+    
+    height:5px;
+    width:90%;
 
+    border-radius:50px;
+  }
+  .proficiency.card:nth-of-type(1) {
+    grid-area:front;
+  }
+  .proficiency.paragraph:nth-of-type(1) {
+    grid-area:frontp;
+  }
+  .proficiency.card:nth-of-type(2) {
+    grid-area:back;
+  }
+  .proficiency.paragraph:nth-of-type(2) {
+    grid-area:backp;
+  }
+  .proficiency.card:nth-of-type(3) {
+    grid-area:arch;
+  }
+  .proficiency.paragraph:nth-of-type(3) {
+    grid-area:archp;
+  }
+  .proficiency.card:nth-of-type(4) {
+    grid-area:devops;
+  }
+  .proficiency.paragraph:nth-of-type(4) {
+    grid-area:devopsp;
+  }
 }

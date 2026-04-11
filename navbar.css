@@ -147,7 +147,7 @@ nav .logo {
   .resume-nav {
     color: var(--primary-bg);
     background-color: var(--accent);
-    padding: 0.5rem;
+    padding: 0.3rem;
     border-radius: 8px;
     font-weight: bold;
   }
@@ -165,7 +165,9 @@ nav .logo {
       transform: scaleX(1);
     }
 
-    nav .resume-nav:hover,
+    nav a:hover {
+    transform: scale(0.95);
+  }
     nav .resume-nav:focus {
       filter: brightness(110%);
     }

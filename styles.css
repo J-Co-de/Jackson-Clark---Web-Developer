@@ -13,8 +13,8 @@
   /* Colors */
   --primary-bg: rgb(11, 14, 26);
   --accent: tan;
-  --secondary-text: #999EB2;
-  --text: white;
+  --secondary-text: #999eb2;
+  --text: #E6E6E6;
   --shadow: black;
 
   /* Shadows */
@@ -53,15 +53,16 @@ html {
 }
 .unselectable {
   -webkit-user-select: none; /* Safari */
-  -ms-user-select: none;      /* IE 10 and older */
-  user-select: none;         /* Standard syntax */
+  -ms-user-select: none; /* IE 10 and older */
+  user-select: none; /* Standard syntax */
 }
 
 /* -----------------------------
    Animations
    ----------------------------- */
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {

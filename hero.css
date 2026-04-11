@@ -5,7 +5,7 @@ header {
   position: relative;
   height: 110dvh;
   width: 100dvw;
-  background: linear-gradient(var(--primary-bg) 90%,grey 100% );
+  background-color:var(--primary-bg);
   z-index: 1;
 }
 
