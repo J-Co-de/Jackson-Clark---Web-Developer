@@ -3,10 +3,9 @@
    ----------------------------- */
 header {
   position: relative;
-  height: 100dvh;
+  height: 110dvh;
   width: 100dvw;
-  background-color: var(--primary-bg);
-  box-shadow: var(--shadow-main);
+  background: linear-gradient(var(--primary-bg) 90%,grey 100% );
   z-index: 1;
 }
 
@@ -16,18 +15,20 @@ header::before {
   top: 0;
   left: 0;
   width: 100dvw;
-  height: 100dvh;
+  height: 105dvh;
   opacity: 0.1;
   z-index: -1;
   pointer-events: none;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  mask-image: linear-gradient(to bottom, grey 65%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, grey 65%, transparent 100%);
 }
 
 .hero.content {
   position: absolute;
-  bottom: 0;
+  top:16.5vh;
   height: 85vh;
   width: 100dvw;
   display: flex;
