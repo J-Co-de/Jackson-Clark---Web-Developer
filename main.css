@@ -1,77 +1,104 @@
 /* -----------------------------------------------------------
-   1. Base Layout & Typography
+   0. DESIGN TOKENS (The "Theme" Section)
+   ----------------------------------------------------------- */
+:root {
+  /* Colors */
+  --bg-main: rgb(11, 14, 26);
+  --bg-card: rgb(18, 21, 33);
+  --bg-progress: var(--primary-bg);
+  --border-dashed: rgb(39, 51, 100);
+
+  /* Borders & Radii */
+  --border-accent: 1px solid var(--accent);
+  --radius-std: 5px;
+  --radius-pill: 50px;
+
+  /* Animation */
+  --hover-scale: scale(1.05);
+  --transition-fast: 0.2s ease-in-out;
+}
+
+/* -----------------------------------------------------------
+   1. CORE LAYOUT & TYPOGRAPHY
    ----------------------------------------------------------- */
 main {
-  position: relative;
-  width: 100vw;
-  height: fit-content;
-  background-color: rgb(11, 14, 26);
-  z-index: 0;
-  padding: 5vh 10vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
+  position: relative;
+  z-index: 0;
 
-main hr {
-  border-color: var(--accent);
+  width: 100vw;
+  height: fit-content;
+  padding: 0 10vw;
+  background-color: var(--bg-main);
 }
 
 h2 {
-  font-size: 4vw;
   font-family: var(--font-heading);
   color: var(--text);
-  margin-top: 15vh;
 }
-
 h3 {
   font-family: var(--font-subheading);
-  font-size: 2.5vw;
+
   color: var(--text);
 }
-
 p,
 span {
   font-family: var(--font-body);
 }
+main hr {
+  border-color: var(--accent);
+  margin: 5vh;
+}
 
 /* -----------------------------------------------------------
-   2. Desktop / Landscape Grid Layout
+   2. LANDSCAPE GRID SYSTEM
    ----------------------------------------------------------- */
-@media (orientation: landscape) {
+@media screen and (orientation: landscape) {
   hr {
     width: 70vw;
   }
-
+  h2 {
+    font-size: 4vw;
+  }
   #proficiency-grid {
     display: grid;
+    gap: 3vw;
+    margin-top: 8vh;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "front  frontp"
-      "backp  back"
-      "arch   archp"
+      "front   frontp"
+      "backp   back"
+      "arch    archp"
       "devopsp devops";
-    gap: 3vw;
-    margin-top: 15vh;
   }
 
-  /* Shared Properties for Cards and Paragraphs */
+  /* Shared Container Dimensions */
   .proficiency.card,
   .proficiency.paragraph {
     width: 40vw;
     height: 30vh;
+    transition: transform var(--transition-fast);
+  }
+
+  .proficiency.card:hover,
+  .proficiency.paragraph:hover {
+    transform: var(--hover-scale);
   }
 
   /* -----------------------------
-     3. Card Styling
+     3. CARD COMPONENT
      ----------------------------- */
   .proficiency.card {
-    background-color: rgb(18, 21, 33);
-    border: 1px solid var(--accent);
-    border-radius: 5px;
-    padding: 1vw;
     display: grid;
+    padding: 1vw;
+    background: var(--bg-card);
+    border: var(--border-accent);
+    border-radius: var(--radius-std);
+
+    /* Internal Card Grid */
     grid-template-columns: 0.3fr 1fr;
     grid-template-rows: repeat(4, 1fr);
     grid-template-areas:
@@ -84,20 +111,21 @@ span {
   .proficiency.card svg {
     grid-area: icon;
     width: 5vw;
-    place-self: center; /* Centers both align and justify */
+    place-self: center;
     color: var(--accent);
   }
 
   .proficiency.card h3 {
     grid-area: header;
     align-self: center;
+    font-size: 2.5vw;
   }
-
   .proficiency.card span {
     color: var(--secondary-text);
     align-self: center;
   }
 
+  /* Named Detail Accessors */
   .proficiency.card span:nth-of-type(1) {
     grid-area: skills;
     font-size: 2vw;
@@ -105,69 +133,70 @@ span {
   .proficiency.card span:nth-of-type(2) {
     grid-area: sub-text;
     font-size: 1.75vw;
-    padding-left: 25%;
     justify-self: start;
+    padding-left: 25%;
   }
   .proficiency.card span:nth-of-type(3) {
     grid-area: percentage;
     font-size: 1.75vw;
-    padding-right: 10%;
     justify-self: end;
-  }
-
-  /* Progress Bar */
-  .measure.bar {
-    grid-area: bar;
-    height: fit-content;
-    width: 90%;
-    background-color: var(--accent);
-    border-radius: 50px;
-    place-self: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    padding: 1px;
-  }
-
-  .measure.fill {
-    background-color: var(--primary-bg);
-    height: 0;
-    border: rgb(39, 51, 100) 0.75vh dashed;
-    border-radius: 50px;
-    width: 80%;
-
-    /* Note: Adjust width per specific card via inline style or specific class */
+    padding-right: 10%;
   }
 
   /* -----------------------------
-     4. Paragraph Styling
+     4. PROGRESS BAR
+     ----------------------------- */
+  .measure.bar {
+    grid-area: bar;
+    display: flex;
+    align-items: center;
+    place-self: center;
+
+    width: 90%;
+    height: fit-content;
+    padding: 1px;
+    background: var(--accent);
+    border-radius: var(--radius-pill);
+  }
+
+  .measure.fill {
+    height: 0;
+    background-color: var(--bg-progress);
+    border: 0.75vh dashed var(--border-dashed);
+    border-radius: var(--radius-pill);
+    /* Width set via inline style */
+  }
+
+  /* -----------------------------
+     5. PARAGRAPH COMPONENT
      ----------------------------- */
   .proficiency.paragraph {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    border-radius: var(--radius-pill);
   }
+
   .proficiency.paragraph.left {
     text-align: right;
-    padding-left:4vw;
-    border-left:2px tan solid;
+    padding: 0 2vw 0 3vw;
+    border-left: 2px solid tan;
   }
+
   .proficiency.paragraph.right {
     text-align: left;
-    padding-right:4vw;
-    border-right:2px tan solid;
+    padding: 0 3vw 0 2vw;
+    border-right: 2px solid tan;
   }
 
   .proficiency.paragraph p {
+    margin-top: 0.5vh;
     color: var(--secondary-text);
-    font-size:clamp(0.45rem,2vw,3vh);
-    margin-top: 1vh;
+    font-size: clamp(0.45rem, 1.8vw, 3vh);
   }
 
   /* -----------------------------
-     5. Grid Area Assignments
+     6. GRID AREA ASSIGNMENTS
      ----------------------------- */
   .frontend.card {
     grid-area: front;
@@ -192,5 +221,130 @@ span {
   }
   .devops.paragraph {
     grid-area: devopsp;
+  }
+}
+@media screen and (orientation: portrait) {
+  hr {
+    width: 80vw;
+  }
+
+  #proficiency-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+    margin-top: 8vh;
+  }
+
+  /* Shared Container Dimensions */
+  .proficiency.card,
+  .proficiency.paragraph {
+    width: 80vw;
+    height: 25vh;
+    transition: transform var(--transition-fast);
+  }
+
+  .proficiency.card:hover,
+  .proficiency.paragraph:hover {
+    transform: var(--hover-scale);
+  }
+
+  /* -----------------------------
+     3. CARD COMPONENT
+     ----------------------------- */
+  .proficiency.card {
+    display: grid;
+    padding: 1vh;
+    background: var(--bg-card);
+    border: var(--border-accent);
+    border-radius: var(--radius-std);
+
+    /* Internal Card Grid */
+    grid-template-columns: 0.3fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      "icon header"
+      "icon skills"
+      "sub-text percentage"
+      "bar bar";
+  }
+
+  .proficiency.card svg {
+    grid-area: icon;
+    width: 6vh;
+    place-self: center;
+    color: var(--accent);
+  }
+
+  .proficiency.card h3 {
+    grid-area: header;
+    align-self: center;
+    font-size: clamp(1rem, 7vh, 5.5vw);
+  }
+  .proficiency.card span {
+    color: var(--secondary-text);
+    align-self: center;
+  }
+
+  /* Named Detail Accessors */
+  .proficiency.card span:nth-of-type(1) {
+    grid-area: skills;
+    font-size: clamp(0.1rem, 8vh, 5vw);
+  }
+  .proficiency.card span:nth-of-type(2) {
+    grid-area: sub-text;
+    font-size: 2vh;
+    justify-self: start;
+    padding-left: 20%;
+    font-size: clamp(0.1rem, 8vh, 5vw);
+  }
+  .proficiency.card span:nth-of-type(3) {
+    grid-area: percentage;
+    font-size: 2vh;
+    justify-self: end;
+    padding-right: 10%;
+    font-size: clamp(0.1rem, 8vh, 5vw);
+  }
+
+  /* -----------------------------
+     4. PROGRESS BAR
+     ----------------------------- */
+  .measure.bar {
+    grid-area: bar;
+    display: flex;
+    align-items: center;
+    place-self: center;
+
+    width: 90%;
+    height: fit-content;
+    padding: 1px;
+    background: var(--accent);
+    border-radius: var(--radius-pill);
+  }
+
+  .measure.fill {
+    height: 0;
+    background-color: var(--bg-progress);
+    border: 0.75vh dashed var(--border-dashed);
+    border-radius: var(--radius-pill);
+    /* Width set via inline style */
+  }
+
+  /* -----------------------------
+     5. PARAGRAPH COMPONENT
+     ----------------------------- */
+  .proficiency.paragraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+  }
+  .proficiency.paragraph h3 {
+    font-size: clamp(1rem, 7vh, 5.5vw);
+  }
+  .proficiency.paragraph p {
+    margin-top: 0.75vh;
+    color: var(--secondary-text);
+    font-size: clamp(0.45rem, 4vh, 3.85vw);
   }
 }

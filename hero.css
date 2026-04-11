@@ -162,7 +162,7 @@ header a:active {
   }
 
   header h2 {
-    font-size: clamp(1rem, 4vh, 6rem);
+    font-size: clamp(1rem, 4vh, 7vw);
   }
 
   header p {
