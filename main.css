@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------
-   0. DESIGN TOKENS (The "Theme" Section)
+   0. DESIGN TOKENS
    ----------------------------------------------------------- */
 :root {
   /* Colors */
@@ -19,7 +19,7 @@
 }
 
 /* -----------------------------------------------------------
-   1. CORE LAYOUT & TYPOGRAPHY
+   1. SHARED BASE STYLES (Mobile & Desktop)
    ----------------------------------------------------------- */
 main {
   display: flex;
@@ -28,7 +28,6 @@ main {
   text-align: center;
   position: relative;
   z-index: 0;
-
   width: 100vw;
   height: fit-content;
   padding: 0 10vw;
@@ -41,20 +40,93 @@ h2 {
 }
 h3 {
   font-family: var(--font-subheading);
-
   color: var(--text);
 }
 p,
 span {
   font-family: var(--font-body);
 }
+
 main hr {
   border-color: var(--accent);
   margin: 5vh;
 }
 
+/* Shared Hover Effect for Cards/Paragraphs */
+.proficiency.card,
+.proficiency.paragraph {
+  transition: transform var(--transition-fast);
+}
+
+.proficiency.card:hover,
+.proficiency.paragraph:hover {
+  transform: var(--hover-scale);
+}
+
+/* --- Card Base Component --- */
+.proficiency.card {
+  display: grid;
+  background: var(--bg-card);
+  border: var(--border-accent);
+  border-radius: var(--radius-std);
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "icon header"
+    "icon skills"
+    "sub-text percentage"
+    "bar bar";
+}
+
+.proficiency.card svg {
+  grid-area: icon;
+  place-self: center;
+  color: var(--accent);
+}
+.proficiency.card h3 {
+  grid-area: header;
+  align-self: center;
+}
+.proficiency.card span {
+  color: var(--secondary-text);
+  align-self: center;
+}
+
+/* Named Detail Accessors */
+.proficiency.card span:nth-of-type(1) {
+  grid-area: skills;
+}
+.proficiency.card span:nth-of-type(2) {
+  grid-area: sub-text;
+  justify-self: start;
+}
+.proficiency.card span:nth-of-type(3) {
+  grid-area: percentage;
+  justify-self: end;
+}
+
+/* --- Progress Bar --- */
+.measure.bar {
+  grid-area: bar;
+  display: flex;
+  align-items: center;
+  place-self: center;
+  width: 90%;
+  height: fit-content;
+  padding: 1px;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+}
+
+.measure.fill {
+  height: 0;
+  background-color: var(--bg-progress);
+  border: 0.75vh dashed var(--border-dashed);
+  border-radius: var(--radius-pill);
+}
+
 /* -----------------------------------------------------------
-   2. LANDSCAPE GRID SYSTEM
+   2. LANDSCAPE STYLES
    ----------------------------------------------------------- */
 @media screen and (orientation: landscape) {
   hr {
@@ -63,141 +135,69 @@ main hr {
   h2 {
     font-size: 4vw;
   }
+
   #proficiency-grid {
     display: grid;
-    gap: 3vw;
-    margin-top: 8vh;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "front   frontp"
-      "backp   back"
+      "back    backp"
       "arch    archp"
-      "devopsp devops";
+      "devops  devopsp";
+    column-gap: 5vw;
+    row-gap: 8vw;
+    margin-top: 8vh;
   }
 
-  /* Shared Container Dimensions */
   .proficiency.card,
   .proficiency.paragraph {
     width: 40vw;
     height: 30vh;
-    transition: transform var(--transition-fast);
   }
 
-  .proficiency.card:hover,
-  .proficiency.paragraph:hover {
-    transform: var(--hover-scale);
-  }
-
-  /* -----------------------------
-     3. CARD COMPONENT
-     ----------------------------- */
   .proficiency.card {
-    display: grid;
     padding: 1vw;
-    background: var(--bg-card);
-    border: var(--border-accent);
-    border-radius: var(--radius-std);
-
-    /* Internal Card Grid */
-    grid-template-columns: 0.3fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-areas:
-      "icon header"
-      "icon skills"
-      "sub-text percentage"
-      "bar bar";
   }
-
   .proficiency.card svg {
-    grid-area: icon;
     width: 5vw;
-    place-self: center;
-    color: var(--accent);
   }
-
   .proficiency.card h3 {
-    grid-area: header;
-    align-self: center;
     font-size: 2.5vw;
   }
-  .proficiency.card span {
-    color: var(--secondary-text);
-    align-self: center;
-  }
 
-  /* Named Detail Accessors */
+  /* Card Text sizes */
   .proficiency.card span:nth-of-type(1) {
-    grid-area: skills;
     font-size: 2vw;
   }
   .proficiency.card span:nth-of-type(2) {
-    grid-area: sub-text;
     font-size: 1.75vw;
-    justify-self: start;
     padding-left: 25%;
   }
   .proficiency.card span:nth-of-type(3) {
-    grid-area: percentage;
     font-size: 1.75vw;
-    justify-self: end;
     padding-right: 10%;
   }
 
-  /* -----------------------------
-     4. PROGRESS BAR
-     ----------------------------- */
-  .measure.bar {
-    grid-area: bar;
-    display: flex;
-    align-items: center;
-    place-self: center;
-
-    width: 90%;
-    height: fit-content;
-    padding: 1px;
-    background: var(--accent);
-    border-radius: var(--radius-pill);
-  }
-
-  .measure.fill {
-    height: 0;
-    background-color: var(--bg-progress);
-    border: 0.75vh dashed var(--border-dashed);
-    border-radius: var(--radius-pill);
-    /* Width set via inline style */
-  }
-
-  /* -----------------------------
-     5. PARAGRAPH COMPONENT
-     ----------------------------- */
+  /* Paragraph Styling */
   .proficiency.paragraph {
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: var(--radius-pill);
-  }
-
-  .proficiency.paragraph.left {
-    text-align: right;
-    padding: 0 2vw 0 3vw;
-    border-left: 2px solid tan;
-  }
-
-  .proficiency.paragraph.right {
     text-align: left;
     padding: 0 3vw 0 2vw;
     border-right: 2px solid tan;
   }
-
+  .proficiency.paragraph h3 {
+    font-size: 2vw;
+  }
   .proficiency.paragraph p {
     margin-top: 0.5vh;
     color: var(--secondary-text);
     font-size: clamp(0.45rem, 1.8vw, 3vh);
   }
 
-  /* -----------------------------
-     6. GRID AREA ASSIGNMENTS
-     ----------------------------- */
+  /* Grid Assignments */
   .frontend.card {
     grid-area: front;
   }
@@ -223,6 +223,10 @@ main hr {
     grid-area: devopsp;
   }
 }
+
+/* -----------------------------------------------------------
+   3. PORTRAIT STYLES
+   ----------------------------------------------------------- */
 @media screen and (orientation: portrait) {
   hr {
     width: 80vw;
@@ -231,112 +235,41 @@ main hr {
   #proficiency-grid {
     display: flex;
     flex-direction: column;
-    gap: 3vw;
+    gap: 5vh;
     margin-top: 8vh;
   }
 
-  /* Shared Container Dimensions */
   .proficiency.card,
   .proficiency.paragraph {
     width: 80vw;
-    height: 25vh;
-    transition: transform var(--transition-fast);
   }
 
-  .proficiency.card:hover,
-  .proficiency.paragraph:hover {
-    transform: var(--hover-scale);
-  }
-
-  /* -----------------------------
-     3. CARD COMPONENT
-     ----------------------------- */
   .proficiency.card {
-    display: grid;
+    height: 25vh;
     padding: 1vh;
-    background: var(--bg-card);
-    border: var(--border-accent);
-    border-radius: var(--radius-std);
-
-    /* Internal Card Grid */
-    grid-template-columns: 0.3fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-areas:
-      "icon header"
-      "icon skills"
-      "sub-text percentage"
-      "bar bar";
   }
-
   .proficiency.card svg {
-    grid-area: icon;
     width: 6vh;
-    place-self: center;
-    color: var(--accent);
   }
-
   .proficiency.card h3 {
-    grid-area: header;
-    align-self: center;
     font-size: clamp(1rem, 7vh, 5.5vw);
   }
-  .proficiency.card span {
-    color: var(--secondary-text);
-    align-self: center;
-  }
 
-  /* Named Detail Accessors */
+  /* Card Text sizes */
   .proficiency.card span:nth-of-type(1) {
-    grid-area: skills;
-    font-size: clamp(0.1rem, 8vh, 5vw);
+    font-size: clamp(0.1rem, 8vh, 4vw);
   }
   .proficiency.card span:nth-of-type(2) {
-    grid-area: sub-text;
-    font-size: 2vh;
-    justify-self: start;
-    padding-left: 20%;
     font-size: clamp(0.1rem, 8vh, 5vw);
+    padding-left: 20%;
   }
   .proficiency.card span:nth-of-type(3) {
-    grid-area: percentage;
-    font-size: 2vh;
-    justify-self: end;
-    padding-right: 10%;
     font-size: clamp(0.1rem, 8vh, 5vw);
+    padding-right: 10%;
   }
 
-  /* -----------------------------
-     4. PROGRESS BAR
-     ----------------------------- */
-  .measure.bar {
-    grid-area: bar;
-    display: flex;
-    align-items: center;
-    place-self: center;
-
-    width: 90%;
-    height: fit-content;
-    padding: 1px;
-    background: var(--accent);
-    border-radius: var(--radius-pill);
-  }
-
-  .measure.fill {
-    height: 0;
-    background-color: var(--bg-progress);
-    border: 0.75vh dashed var(--border-dashed);
-    border-radius: var(--radius-pill);
-    /* Width set via inline style */
-  }
-
-  /* -----------------------------
-     5. PARAGRAPH COMPONENT
-     ----------------------------- */
   .proficiency.paragraph {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
+    height: fit-content;
     text-align: center;
   }
   .proficiency.paragraph h3 {
@@ -345,6 +278,6 @@ main hr {
   .proficiency.paragraph p {
     margin-top: 0.75vh;
     color: var(--secondary-text);
-    font-size: clamp(0.45rem, 4vh, 3.85vw);
+    font-size: clamp(0.45rem, 4vh, 3.5vw);
   }
 }

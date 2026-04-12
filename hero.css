@@ -5,7 +5,7 @@ header {
   position: relative;
   height: 110dvh;
   width: 100dvw;
-  background-color:var(--primary-bg);
+  background-color: var(--primary-bg);
   z-index: 1;
 }
 
@@ -28,7 +28,6 @@ header::before {
 
 .hero.content {
   position: absolute;
-  top:16.5vh;
   height: 85vh;
   width: 100dvw;
   display: flex;
@@ -85,6 +84,7 @@ header a {
   text-wrap: nowrap;
   font-family: var(--font-subheading);
   border-radius: var(--border-radius);
+  text-decoration:none;
 }
 
 header a:nth-of-type(1) {
@@ -135,6 +135,7 @@ header a:active {
 
   .hero.content {
     height: 90vh;
+    margin-top: 5vh;
   }
 
   .hero.content h1 {
@@ -167,14 +168,14 @@ header a:active {
 
   header p {
     font-size: clamp(0.8rem, 2.8vh, 2.5rem);
-    margin-top: 4vh;
+    margin-top: 2vh;
     width: max(80vw, 315px);
   }
 
   .hero-btns {
     gap: 4vh;
     flex-direction: column;
-    margin-top: 6vh;
+    margin-top: 4vh;
     margin-bottom: 2vh;
   }
 
@@ -186,8 +187,8 @@ header a:active {
 
   .attention-arrow {
     position: absolute;
-    bottom: 3vh;
-    height: 6vh;
+    bottom: 0;
+    height: 10vh;
     align-self: center;
   }
 }
@@ -201,7 +202,8 @@ header a:active {
   }
 
   .hero.content {
-    height: 85vh;
+    height: 90vh;
+    margin-top: 13vh;
   }
 
   .hero.content h1 {
@@ -239,16 +241,6 @@ header a:active {
     }
   }
 
-  .hero-btns {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 80vw;
-    gap: 2vw;
-    margin-top: 3vh;
-    margin-bottom: 6vh;
-  }
-
   .hero.content a {
     font-size: clamp(1.1rem, 4vw, 4rem);
     width: max(180px, 30vw);
@@ -258,10 +250,23 @@ header a:active {
   .attention-arrow {
     height: max(50px, 12vh);
   }
-
+  .hero.content .hero-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    width: 80vw;
+    gap: 2vw;
+    height:20vh;
+  }
+  @media (max-height:609px) {
+    .hero.content .hero-btns {
+      height:25%;
+    }
+  }
   @media (min-height: 610px) {
     .hero.content h1 {
-      font-size: clamp(3rem, 10vw, 9rem);
+      font-size: clamp(3rem, 10vw, 7rem);
     }
 
     .hero.content span {
@@ -272,16 +277,6 @@ header a:active {
     .hero.content p {
       font-size: clamp(0.8rem, 3.5vw, 2.2rem);
       margin-top: 2vh;
-    }
-
-    .hero.content .hero-btns {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 80vw;
-      gap: 2vw;
-      margin-top: 7vh;
-      margin-bottom: 6vh;
     }
   }
 }

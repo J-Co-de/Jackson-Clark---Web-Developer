@@ -26,6 +26,8 @@ nav .logo {
   cursor: default;
 }
 
+
+
 .logo svg {
   transition: transform 0.5s ease;
 }
@@ -95,9 +97,13 @@ nav .logo {
 
   nav ul {
     position: absolute;
-    right: 3vw;
-    color: white;
+    right: 3vw; 
     list-style: none;
+    
+  }
+  nav ul a {
+    color: white;
+   text-decoration:none;
   }
 
   nav .hamburger {
@@ -166,8 +172,8 @@ nav .logo {
     }
 
     nav a:hover {
-    transform: scale(0.95);
-  }
+      transform: scale(0.95);
+    }
     nav .resume-nav:focus {
       filter: brightness(110%);
     }
