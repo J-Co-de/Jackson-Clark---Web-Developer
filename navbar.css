@@ -126,6 +126,7 @@ nav .logo {
 
   nav .slash {
     font-size: 1.75vw;
+    color: var(--secondary-text);
   }
 
   nav .norm-nav:focus,
