@@ -26,28 +26,31 @@
     <link href="styles.css" rel="stylesheet" />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <nav aria-label="Primary Navigation">
-      <div class="logo norm-curs unselectable">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-shield-icon lucide-shield"
-        >
-          <path
-            d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
-          />
-        </svg>
-        <span>Jackson</span>
-      </div>
+      <a href="#" class="logo norm-curs" aria-label="Jackson Clark Home">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true" 
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-shield-icon lucide-shield"
+          >
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+            />
+          </svg>
+          <span>Jackson</span>
+      </a>
+
       <button class="hamburger" aria-expanded="false" aria-label="Open Menu">
         <svg
           aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -60,7 +63,7 @@
           <path d="M4 19h16" />
         </svg>
       </button>
-      <ul class="unselectable">
+      <ul>
         <li><a href="#about" class="norm-nav">About</a></li>
         <li class="norm-curs slash" aria-hidden="true">/</li>
         <li><a href="#projects" class="norm-nav">Projects</a></li>
@@ -74,7 +77,7 @@
     <header>
       <div class="hero content">
         <h1>Jackson</h1>
-        <span>Coding Warrior <span>• Writer of Code</span></span>
+        <span class="hero-subtitle">Coding Warrior <span>• Writer of Code</span></span>
         <hr aria-hidden="true" />
         <h2>Full Stack Developer</h2>
         <p>
@@ -82,8 +85,8 @@
           to design, I create scalable web solutions that are functional,
           secure, and built to last.
         </p>
-        <div class="hero-btns unselectable">
-          <a href="#projects">My Victories</a>
+        <div class="hero-btns">
+          <a href="#projects" aria-label="View My Projects">My Victories</a>
           <svg
             class="attention-arrow"
             aria-hidden="true"
@@ -99,11 +102,11 @@
             <path d="M9 4l3 2 3-2" />
             <path d="M9 7l3 2 3-2" />
           </svg>
-          <a href="#contact">Summon Me</a>
+          <a href="#contact" aria-label="Contact Me">Summon Me</a>
         </div>
       </div>
     </header>
-    <main>
+    <main id="main-content">
       <hr aria-hidden="true" />
       <section id="about" aria-labelledby="about-heading">
         <h2 id="about-heading">What do I Bring to the Table?</h2>
@@ -125,8 +128,8 @@
             </svg>
             <h3>Frontend</h3>
             <span>React, TypeScript, Next.js, Tailwind CSS</span>
-            <span>Proficiency:</span>
-            <span>0%</span>
+            <span class="proficiency-label">Proficiency:</span>
+            <span class="proficiency-label"> 0%</span>
             <div
               class="measure bar"
               role="progressbar"
@@ -164,8 +167,8 @@
             </svg>
             <h3>Backend</h3>
             <span>Node.js, Python, PostgreSQL, MongoDB</span>
-            <span>Proficiency:</span>
-            <span>0%</span>
+            <span class="proficiency-label">Proficiency:</span>
+            <span class="proficiency-label"> 0%</span>
             <div
               class="measure bar"
               role="progressbar"
@@ -209,8 +212,8 @@
             </svg>
             <h3>Architecture</h3>
             <span>Microservices, REST APIs, GraphQL, WebSockets</span>
-            <span>Proficiency:</span>
-            <span>0%</span>
+            <span class="proficiency-label">Proficiency:</span>
+            <span class="proficiency-label"> 0%</span>
             <div
               class="measure bar"
               role="progressbar"
@@ -248,8 +251,8 @@
             </svg>
             <h3>DevOps & Cloud</h3>
             <span>Docker, AWS, CI/CD, Kubernetes</span>
-            <span>Proficiency:</span>
-            <span>0%</span>
+            <span class="proficiency-label">Proficiency:</span>
+            <span class="proficiency-label"> 0%</span>
             <div
               class="measure bar"
               role="progressbar"
@@ -270,24 +273,34 @@
               frequently with zero downtime.
             </p>
           </div>
-        </div>
-        <div id="status-flex">
-          <div class="stat card">
-            <span class="status"></span>
-            <span class="header"></span>
-            <span class="context"></span>
-          </div>
-          <div class="stat card">
-            
-          </div>
-          <div class="stat card">
-            
-          </div>
-          <div class="stat card">
-            
-          </div>
+          <ul id="status-flex" aria-label="Professional Statistics">
+            <li class="stat card">
+              <span class="status">5+</span>
+              <span class="header">Years of Experience</span>
+              <span class="context">Building digital products</span>
+            </li>
+            <li class="stat card">
+              <span class="status">50+</span>
+              <span class="header">Projects Delivered</span>
+              <span class="context">Across multiple industries</span>
+            </li>
+            <li class="stat card">
+              <span class="status">98%</span>
+              <span class="header">Client Satisfaction</span>
+              <span class="context">Trusted by clients worldwide</span>
+            </li>
+            <li class="stat card">
+              <span class="status">10+</span>
+              <span class="header">Industries Served</span>
+              <span class="context">Diverse domain expertise</span>
+            </li>
+          </ul>
         </div>
       </section>
+      <section> 
+      
+      </section>
+      <hr />
     </main>
 
     <footer></footer>

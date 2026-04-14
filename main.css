@@ -1,55 +1,37 @@
 /* -----------------------------------------------------------
-   0. DESIGN TOKENS
-   ----------------------------------------------------------- */
-:root {
-  /* Colors */
-  --bg-main: rgb(11, 14, 26);
-  --bg-card: rgb(18, 21, 33);
-  --bg-progress: var(--primary-bg);
-  --border-dashed: rgb(39, 51, 100);
-
-  /* Borders & Radii */
-  --border-accent: 1px solid var(--accent);
-  --radius-std: 5px;
-  --radius-pill: 50px;
-
-  /* Animation */
-  --hover-scale: scale(1.05);
-  --transition-fast: 0.2s ease-in-out;
-}
-
-/* -----------------------------------------------------------
-   1. SHARED BASE STYLES (Mobile & Desktop)
+   MAIN CONTENT LAYOUT
+   Handles the proficiency cards, statistics grid, and base main styles.
    ----------------------------------------------------------- */
 main {
+  position: relative;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  position: relative;
-  z-index: 0;
-  width: 100vw;
+  width: 100dvw;
   height: fit-content;
   padding: 0 10vw;
+  text-align: center;
   background-color: var(--bg-main);
 }
 
-h2 {
+main h2 {
   font-family: var(--font-heading);
   color: var(--text);
 }
-h3 {
+main h3 {
   font-family: var(--font-subheading);
   color: var(--text);
 }
-p,
-span {
+main p,
+main span {
   font-family: var(--font-body);
 }
 
 main hr {
+  justify-self: center;
   border-color: var(--accent);
-  margin: 5vh;
+  margin: 7vh 0;
 }
 
 /* Shared Hover Effect for Cards/Paragraphs */
@@ -87,12 +69,13 @@ main hr {
   grid-area: header;
   align-self: center;
 }
+
 .proficiency.card span {
   color: var(--secondary-text);
   align-self: center;
 }
 
-/* Named Detail Accessors */
+/* Named Detail Accessors (Grid Children) */
 .proficiency.card span:nth-of-type(1) {
   grid-area: skills;
 }
@@ -112,7 +95,6 @@ main hr {
   align-items: center;
   place-self: center;
   width: 90%;
-  height: fit-content;
   padding: 1px;
   background: var(--accent);
   border-radius: var(--radius-pill);
@@ -121,12 +103,12 @@ main hr {
 .measure.fill {
   height: 0;
   background-color: var(--bg-progress);
-  border: 0.75vh dashed var(--border-dashed);
   border-radius: var(--radius-pill);
+  border: 0.75vh dashed var(--border-dashed);
 }
 
 /* -----------------------------------------------------------
-   2. LANDSCAPE STYLES
+   LANDSCAPE VIEW (Desktop/Tablet)
    ----------------------------------------------------------- */
 @media screen and (orientation: landscape) {
   hr {
@@ -143,9 +125,10 @@ main hr {
       "front   frontp"
       "back    backp"
       "arch    archp"
-      "devops  devopsp";
+      "devops  devopsp"
+      "status status";
     column-gap: 5vw;
-    row-gap: 8vw;
+    row-gap: 6vw;
     margin-top: 8vh;
   }
 
@@ -183,10 +166,10 @@ main hr {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: var(--radius-pill);
-    text-align: left;
     padding: 0 3vw 0 2vw;
+    text-align: left;
     border-right: 2px solid tan;
+    border-radius: var(--radius-pill);
   }
   .proficiency.paragraph h3 {
     font-size: 2vw;
@@ -222,28 +205,64 @@ main hr {
   .devops.paragraph {
     grid-area: devopsp;
   }
+
+  /* List reset for statistics grid */
+  #status-flex {
+    grid-area: status;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+  }
+  .stat.card {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: fit-content;
+    padding: 1vw;
+    text-align: start;
+    background-color: var(--bg-card);
+    border: var(--border-accent);
+    border-radius: var(--radius-std);
+  }
+  .stat.card .status {
+    font-size: 3.8vw;
+    color: var(--text);
+  }
+  .stat.card .header {
+    font-size: 2vw;
+    color: var(--accent);
+  }
+  .stat.card .context {
+    font-size: 1.3vw;
+    color: var(--secondary-text);
+  }
 }
 
 /* -----------------------------------------------------------
-   3. PORTRAIT STYLES
+   PORTRAIT VIEW (Mobile)
    ----------------------------------------------------------- */
 @media screen and (orientation: portrait) {
   hr {
     width: 80vw;
   }
-
+h2 {
+  font-size:5vh;
+}
   #proficiency-grid {
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    align-items: center;
+    justify-self: center;
     margin-top: 8vh;
+    gap: 5vh;
   }
-
+  
+  /*proficency card*/
   .proficiency.card,
   .proficiency.paragraph {
     width: 80vw;
   }
-
   .proficiency.card {
     height: 25vh;
     padding: 1vh;
@@ -254,8 +273,6 @@ main hr {
   .proficiency.card h3 {
     font-size: clamp(1rem, 7vh, 5.5vw);
   }
-
-  /* Card Text sizes */
   .proficiency.card span:nth-of-type(1) {
     font-size: clamp(0.1rem, 8vh, 4vw);
   }
@@ -268,6 +285,7 @@ main hr {
     padding-right: 10%;
   }
 
+  /*proficency paragraphs*/
   .proficiency.paragraph {
     height: fit-content;
     text-align: center;
@@ -279,5 +297,10 @@ main hr {
     margin-top: 0.75vh;
     color: var(--secondary-text);
     font-size: clamp(0.45rem, 4vh, 3.5vw);
+  }
+
+  /*Status Cards*/
+  #status-flex {
+    display:none;
   }
 }

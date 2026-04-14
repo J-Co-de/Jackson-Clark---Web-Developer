@@ -1,43 +1,45 @@
 /* -----------------------------
-   Navbar base styles
+   NAVIGATION BAR
+   Sticky header with logo and menu items.
    ----------------------------- */
 nav {
   position: fixed;
-  width: 100dvw;
+  z-index: 1000;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 100dvw;
   background-color: var(--primary-bg);
+  opacity: 0.96;
   border-bottom: 1px solid rgba(210, 180, 140, 0.4);
-  z-index: 2147483647;
 }
 
+/* Brand/Logo styles */
 nav .logo {
   position: absolute;
   display: flex;
   flex-direction: row;
   align-items: center;
   width: fit-content;
-  gap: 2vw;
   color: var(--accent);
+  gap: 2vw;
   font-weight: bold;
   font-family: var(--font-heading);
   cursor: default;
 }
-
-
 
 .logo svg {
   transition: transform 0.5s ease;
 }
 
 /* -----------------------------
-   Portrait layout
+   PORTRAIT LAYOUT (Mobile Nav)
    ----------------------------- */
 @media (orientation: portrait) {
   nav {
     height: 10dvh;
+    opacity: 1;
   }
 
   nav .logo {
@@ -76,7 +78,7 @@ nav .logo {
 }
 
 /* -----------------------------
-   Landscape layout
+   LANDSCAPE LAYOUT (Desktop Nav)
    ----------------------------- */
 @media (orientation: landscape) {
   nav {
@@ -86,7 +88,9 @@ nav .logo {
   nav .logo {
     left: 3vw;
   }
-
+  nav a {
+    text-decoration: none;
+  }
   .logo span {
     font-size: 3vw;
   }
@@ -96,16 +100,15 @@ nav .logo {
   }
 
   nav ul {
-    position: absolute;
-    right: 3vw; 
     list-style: none;
-    
-  }
-  nav ul a {
-    color: white;
-   text-decoration:none;
+    position: absolute;
+    right: 3vw;
   }
 
+  nav ul a {
+    color: white;
+    text-decoration: none;
+  }
   nav .hamburger {
     display: none;
   }
@@ -118,10 +121,10 @@ nav .logo {
   nav a {
     position: relative;
     display: inline-block;
-    transition: color 0.3s ease;
     font-family: var(--font-subheading);
     font-size: 2.5vw;
     cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
   }
 
   nav .slash {
@@ -131,7 +134,7 @@ nav .logo {
 
   nav .norm-nav:focus,
   nav .norm-nav:hover {
-    color: rgb(230, 180, 140);
+    color: var(--accent);
   }
 
   nav .norm-nav:active {
@@ -145,7 +148,7 @@ nav .logo {
     bottom: -4px;
     width: 100%;
     height: 2px;
-    background-color: rgb(230, 180, 140);
+    background-color: var(--accent);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
@@ -154,9 +157,9 @@ nav .logo {
   .resume-nav {
     color: var(--primary-bg);
     background-color: var(--accent);
+    font-weight: bold;
     padding: 0.3rem;
     border-radius: 8px;
-    font-weight: bold;
   }
 
   .resume-nav:active {
