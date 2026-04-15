@@ -237,6 +237,57 @@ main hr {
     font-size: 1.3vw;
     color: var(--secondary-text);
   }
+  .project {
+    width:90vw;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    margin-top: 8vh;
+  }
+  .project img {
+    width:40vw;
+    aspect-ratio:16/9;
+    border:var(--accent) 5px double;
+    border-radius:var(--radius-pill);
+  }
+  .project h3 {
+    font-size: 3vw;
+    text-align:start;
+  }
+  .project p {
+    font-size: clamp(0.45rem, 2.1vw, 8vh);
+    color:var(--secondary-text);
+    text-align:start;
+  }
+  .project .skills {
+    display:flex;
+    flex-direction:row;
+    justify-content:start;
+    gap:1vw;
+  }
+  .project .skill {
+    color:var(--accent);
+    line-height:2;
+    font-size:1.7vw;
+  }
+  
+  .project .card {
+    width:40vw;
+    align-self:center;
+    justify-self:center;
+  }
+  .project .links {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    color:white;
+    font-size:1.7vw;
+    gap:1.5vw;
+  }
+  .project svg {
+    width:1.5vw;
+    margin-right:0.2vw;
+  }
 }
 
 /* -----------------------------------------------------------
