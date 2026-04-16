@@ -25,7 +25,7 @@
   --shadow-main: 0px 15px 10px rgba(0, 0, 0, 0.5);
   --shadow-btn: -3px 5px 10px rgba(0, 0, 0, 0.5);
   --shadow-btn-alt: 3px 5px 10px rgba(0, 0, 0, 0.5);
-  --hover-scale: scale(1.05);
+  --hover-scale: scale(0.95);
   --transition-fast: 0.2s ease-in-out;
 
   /* --- Layout & Borders --- */
@@ -52,7 +52,7 @@
 /* Visible Focus Ring for Keyboard Users */
 :focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 4px;
+  outline-offset: 2px;
 }
 
 /* Skip to Content Link */

@@ -112,7 +112,7 @@ main hr {
    ----------------------------------------------------------- */
 @media screen and (orientation: landscape) {
   hr {
-    width: 70vw;
+    width: 85vw;
   }
   h2 {
     font-size: 4vw;
@@ -237,56 +237,157 @@ main hr {
     font-size: 1.3vw;
     color: var(--secondary-text);
   }
+  .stat.card:hover {
+    transform: var(--hover-scale);
+  }
   .project {
-    width:90vw;
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin-top: 8vh;
   }
   .project img {
-    width:40vw;
-    aspect-ratio:16/9;
-    border:var(--accent) 5px double;
-    border-radius:var(--radius-pill);
+    width: 40vw;
+    aspect-ratio: 16/9;
+    border: var(--accent) 5px double;
+    border-radius: var(--radius-pill);
   }
   .project h3 {
     font-size: 3vw;
-    text-align:start;
+    text-align: start;
   }
   .project p {
     font-size: clamp(0.45rem, 2.1vw, 8vh);
-    color:var(--secondary-text);
-    text-align:start;
+    color: var(--secondary-text);
+    text-align: start;
   }
   .project .skills {
-    display:flex;
-    flex-direction:row;
-    justify-content:start;
-    gap:1vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 1vw;
   }
   .project .skill {
-    color:var(--accent);
-    line-height:2;
-    font-size:1.7vw;
+    color: var(--accent);
+    line-height: 2;
+    font-size: 1.7vw;
   }
-  
+
   .project .card {
-    width:40vw;
-    align-self:center;
-    justify-self:center;
+    width: 40vw;
+    align-self: center;
+    justify-self: center;
   }
   .project .links {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    color:white;
-    font-size:1.7vw;
-    gap:1.5vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    font-size: 1.7vw;
+    gap: 1.5vw;
   }
   .project svg {
-    width:1.5vw;
-    margin-right:0.2vw;
+    width: 1.5vw;
+    margin-right: 0.2vw;
+  }
+  #contact-grid {
+    margin-top: 8vh;
+    display:grid;
+    grid-template-areas:
+      "form information"
+      "form links";
+  }
+  #contact-grid #contact-form {
+    grid-area:form;
+    width: 60vw;
+    height: 60vh;
+    height: fit-content;
+    display: grid;
+    grid-template-columns:30vw 30vw;
+    grid-template-rows: 12vh 40vh 8vh;
+    grid-template-areas:
+      "inputs inputs"
+      "message message"
+      "submit clear";
+      column-gap:1vw;
+      row-gap:1vh;
+  }
+  
+  #contact-form input {
+    width: 100%;
+    padding:0.5rem;
+    display: inline;
+    grid-area: inputs;
+    background-color: var(--bg-card);
+    border:rgb(30, 42, 62) 1px solid;
+    
+  }
+  #contact-form label {
+    color: var(--text);
+    display:flex;
+    text-align:start;
+    flex-direction:column;
+    line-height:2.5;
+  }
+
+  #contact-form textarea {
+    grid-area: message;
+    width: calc(200% + 1vw);
+    height:30vh;
+    background-color: var(--bg-card);
+    border:rgb(30, 42, 62) 1px solid;
+    padding:0.5rem;
+  }
+  #contact-form button svg {
+    width:2vw;
+  }
+  #contact-form button:nth-of-type(1) {
+    grid-area: submit;
+    width: 100%;
+    justify-self:center;
+    background-color:var(--accent);
+    color:var(--bg-main);
+    padding:0.5rem;
+    font-size:2vw;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    gap:1vw;
+    border:none;
+  }
+  #contact-form button:nth-of-type(2) {
+    grid-area: clear;
+    background-color:#8b3a3a;
+    width: 100%;
+    justify-self:center;
+    padding:0.5rem;
+    font-size:2vw;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    gap:1vw;
+    border:none;
+  }
+  .email.card {
+    background-color:red;
+    width:20vw;
+    grid-area:information;
+  }
+  .location.card {
+    background-color:red;
+    width:20vw;
+  }
+  .response-time.card {
+    background-color:red;
+    width:20vw;
+    grid-area:information;
+  }
+  .connect.card{
+    background-color:red;
+    width:20vw;
   }
 }
 
@@ -297,9 +398,9 @@ main hr {
   hr {
     width: 80vw;
   }
-h2 {
-  font-size:5vh;
-}
+  h2 {
+    font-size: 5vh;
+  }
   #proficiency-grid {
     display: flex;
     flex-direction: column;
@@ -308,7 +409,7 @@ h2 {
     margin-top: 8vh;
     gap: 5vh;
   }
-  
+
   /*proficency card*/
   .proficiency.card,
   .proficiency.paragraph {
@@ -352,6 +453,6 @@ h2 {
 
   /*Status Cards*/
   #status-flex {
-    display:none;
+    display: none;
   }
 }
