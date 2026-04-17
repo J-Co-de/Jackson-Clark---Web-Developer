@@ -293,101 +293,137 @@ main hr {
   }
   #contact-grid {
     margin-top: 8vh;
-    display:grid;
+    display: grid;
     grid-template-areas:
       "form information"
       "form links";
+    grid-template-columns: 65vw 30vw;
+    grid-template-rows: 40vh 23.5vh;
+    justify-items: center;
+    align-items: end;
   }
   #contact-grid #contact-form {
-    grid-area:form;
+    grid-area: form;
     width: 60vw;
     height: 60vh;
     height: fit-content;
     display: grid;
-    grid-template-columns:30vw 30vw;
+    grid-template-columns: 30vw 30vw;
     grid-template-rows: 12vh 40vh 8vh;
     grid-template-areas:
       "inputs inputs"
       "message message"
       "submit clear";
-      column-gap:1vw;
-      row-gap:1vh;
+    column-gap: 1vw;
+    row-gap: 1vh;
   }
-  
+
   #contact-form input {
     width: 100%;
-    padding:0.5rem;
+    padding: 0.5rem;
     display: inline;
     grid-area: inputs;
     background-color: var(--bg-card);
-    border:rgb(30, 42, 62) 1px solid;
-    
+    border: rgb(30, 42, 62) 1px solid;
   }
   #contact-form label {
     color: var(--text);
-    display:flex;
-    text-align:start;
-    flex-direction:column;
-    line-height:2.5;
+    display: flex;
+    text-align: start;
+    flex-direction: column;
+    line-height: 2.5;
   }
 
   #contact-form textarea {
     grid-area: message;
     width: calc(200% + 1vw);
-    height:30vh;
+    height: 30vh;
     background-color: var(--bg-card);
-    border:rgb(30, 42, 62) 1px solid;
-    padding:0.5rem;
+    border: rgb(30, 42, 62) 1px solid;
+    padding: 0.5rem;
   }
   #contact-form button svg {
-    width:2vw;
+    width: 2vw;
   }
   #contact-form button:nth-of-type(1) {
     grid-area: submit;
     width: 100%;
-    justify-self:center;
-    background-color:var(--accent);
-    color:var(--bg-main);
-    padding:0.5rem;
-    font-size:2vw;
-    display:flex;
-    flex-direction:row;
-    justify-content:center;
-    align-items:center;
-    gap:1vw;
-    border:none;
+    justify-self: center;
+    background-color: var(--accent);
+    color: var(--bg-main);
+    padding: 0.5rem;
+    font-size: 2vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    border: none;
   }
   #contact-form button:nth-of-type(2) {
     grid-area: clear;
-    background-color:#8b3a3a;
+    background-color: #8b3a3a;
     width: 100%;
-    justify-self:center;
-    padding:0.5rem;
-    font-size:2vw;
-    display:flex;
-    flex-direction:row;
-    justify-content:center;
-    align-items:center;
+    justify-self: center;
+    padding: 0.5rem;
+    font-size: 2vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    border: none;
+  }
+
+  .cards {
+    grid-area: information;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: end;
     gap:1vw;
-    border:none;
+    width: 20vw;
+    line-height: 1.5;
   }
-  .email.card {
-    background-color:red;
-    width:20vw;
-    grid-area:information;
+  .cards > * {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-std);
+    padding:.1rem;
+    border: rgb(30, 42, 62) 1px solid;
   }
-  .location.card {
-    background-color:red;
-    width:20vw;
+  .cards span {
+    color: var(--secondary-text);
+    font-size: 1.5vw;
   }
-  .response-time.card {
-    background-color:red;
-    width:20vw;
-    grid-area:information;
+  .connect.card {
+    grid-area: links;
+    text-align: start;
+    width: 20vw;
+    height:18vh;
+    background-color: var(--bg-card);
+    border-radius: var(--radius-std);
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: rgb(30, 42, 62) 1px solid;
   }
-  .connect.card{
-    background-color:red;
-    width:20vw;
+  .connect.card h3 {
+    text-align:center;
+  }
+  .connect.card ul {
+    list-style: none;
+  }
+  .connect.card svg {
+    width: 6%;
+    color: white;
+    align-self: start;
+  }
+  .connect.card span {
+    color: var(--secondary-text);
+    font-size: 1.5vw;
+    align-self: end;
   }
 }
 
