@@ -10,7 +10,7 @@ main {
   align-items: center;
   width: 100dvw;
   height: fit-content;
-  padding: 0 10vw;
+  padding: 8vh 10vw;
   text-align: center;
   background-color: var(--bg-main);
 }
@@ -129,7 +129,6 @@ main hr {
       "status status";
     column-gap: 5vw;
     row-gap: 6vw;
-    margin-top: 8vh;
   }
 
   .proficiency.card,
@@ -296,7 +295,7 @@ main hr {
     display: grid;
     grid-template-areas:
       "form information"
-      "form links";
+      "form information";
     grid-template-columns: 65vw 30vw;
     grid-template-rows: 40vh 23.5vh;
     justify-items: center;
@@ -328,10 +327,11 @@ main hr {
   }
   #contact-form label {
     color: var(--text);
+    font-size: 4vh;
     display: flex;
     text-align: start;
     flex-direction: column;
-    line-height: 2.5;
+    line-height: 1.5;
   }
 
   #contact-form textarea {
@@ -377,41 +377,38 @@ main hr {
 
   .cards {
     grid-area: information;
-    height: 80%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-self: end;
-    gap:1vw;
+    gap: 1vw;
     width: 20vw;
     line-height: 1.5;
   }
-  .cards > * {
+  .cards > div {
+    display:flex;
+    flex-direction:column;
     background-color: var(--bg-card);
     border-radius: var(--radius-std);
-    padding:.1rem;
+    padding: 0.1rem;
     border: rgb(30, 42, 62) 1px solid;
   }
   .cards span {
     color: var(--secondary-text);
-    font-size: 1.5vw;
+    font-size: max(1.5vw,0.6rem);
+  }
+  #contact-grid h3 {
+    font-size: max(1.8vw,0.7rem);
+    height: fit-content;
+    line-height: 0.5;
   }
   .connect.card {
-    grid-area: links;
     text-align: start;
-    width: 20vw;
-    height:18vh;
-    background-color: var(--bg-card);
-    border-radius: var(--radius-std);
-    padding: 0 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border: rgb(30, 42, 62) 1px solid;
+    padding: 0.5vw 2vw;
+    font-size: max(1.5vw,0.6rem);
   }
-  .connect.card h3 {
-    text-align:center;
-  }
+
   .connect.card ul {
     list-style: none;
   }
@@ -420,11 +417,7 @@ main hr {
     color: white;
     align-self: start;
   }
-  .connect.card span {
-    color: var(--secondary-text);
-    font-size: 1.5vw;
-    align-self: end;
-  }
+
 }
 
 /* -----------------------------------------------------------

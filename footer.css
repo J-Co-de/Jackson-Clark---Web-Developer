@@ -1,0 +1,6 @@
+footer {
+    height:30dvh;
+    width:100dvw;
+    background-color:var(--primary-bg);
+    border-top:var(--accent) dashed 1px;
+    }
