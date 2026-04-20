@@ -1,7 +1,9 @@
 /* -----------------------------------------------------------
    MAIN CONTENT LAYOUT
-   Handles the proficiency cards, statistics grid, and base main styles.
+   Handles the proficiency cards, statistics grid, project cards,
+   and contact section styles.
    ----------------------------------------------------------- */
+
 main {
   position: relative;
   z-index: 0;
@@ -19,10 +21,12 @@ main h2 {
   font-family: var(--font-heading);
   color: var(--text);
 }
+
 main h3 {
   font-family: var(--font-subheading);
   color: var(--text);
 }
+
 main p,
 main span {
   font-family: var(--font-body);
@@ -34,7 +38,11 @@ main hr {
   margin: 7vh 0;
 }
 
-/* Shared Hover Effect for Cards/Paragraphs */
+/* -----------------------------------------------------------
+   SHARED COMPONENT STYLES
+   ----------------------------------------------------------- */
+
+/* Shared hover effect for cards and descriptive panels */
 .proficiency.card,
 .proficiency.paragraph {
   transition: transform var(--transition-fast);
@@ -45,7 +53,27 @@ main hr {
   transform: var(--hover-scale);
 }
 
-/* --- Card Base Component --- */
+/* Shared hover targets for project images and contact cards */
+#projects img,
+.cards > div {
+  transition: transform var(--transition-fast);
+}
+
+#projects img:hover,
+.cards > div:hover {
+  transform: var(--hover-scale);
+  border-color:var(--accent);
+}
+
+#contact-form button {
+  transition: transform var(--transition-fast);
+}
+
+#contact-form button:hover {
+  transform: var(--hover-scale);
+}
+
+/* Proficiency card base */
 .proficiency.card {
   display: grid;
   background: var(--bg-card);
@@ -65,6 +93,7 @@ main hr {
   place-self: center;
   color: var(--accent);
 }
+
 .proficiency.card h3 {
   grid-area: header;
   align-self: center;
@@ -75,20 +104,22 @@ main hr {
   align-self: center;
 }
 
-/* Named Detail Accessors (Grid Children) */
+/* Grid child placement */
 .proficiency.card span:nth-of-type(1) {
   grid-area: skills;
 }
+
 .proficiency.card span:nth-of-type(2) {
   grid-area: sub-text;
   justify-self: start;
 }
+
 .proficiency.card span:nth-of-type(3) {
   grid-area: percentage;
   justify-self: end;
 }
 
-/* --- Progress Bar --- */
+/* Progress bar */
 .measure.bar {
   grid-area: bar;
   display: flex;
@@ -108,15 +139,21 @@ main hr {
 }
 
 /* -----------------------------------------------------------
-   LANDSCAPE VIEW (Desktop/Tablet)
+   LANDSCAPE VIEW (Desktop / Tablet)
    ----------------------------------------------------------- */
+
 @media screen and (orientation: landscape) {
   hr {
     width: 85vw;
   }
+
   h2 {
     font-size: 4vw;
   }
+
+  /* -------------------------------------------------------
+     Proficiency section
+     ------------------------------------------------------- */
 
   #proficiency-grid {
     display: grid;
@@ -140,27 +177,29 @@ main hr {
   .proficiency.card {
     padding: 1vw;
   }
+
   .proficiency.card svg {
     width: 5vw;
   }
+
   .proficiency.card h3 {
     font-size: 2.5vw;
   }
 
-  /* Card Text sizes */
   .proficiency.card span:nth-of-type(1) {
     font-size: 2vw;
   }
+
   .proficiency.card span:nth-of-type(2) {
     font-size: 1.75vw;
     padding-left: 25%;
   }
+
   .proficiency.card span:nth-of-type(3) {
     font-size: 1.75vw;
     padding-right: 10%;
   }
 
-  /* Paragraph Styling */
   .proficiency.paragraph {
     display: flex;
     flex-direction: column;
@@ -170,42 +209,54 @@ main hr {
     border-right: 2px solid tan;
     border-radius: var(--radius-pill);
   }
+
   .proficiency.paragraph h3 {
     font-size: 2vw;
   }
+
   .proficiency.paragraph p {
     margin-top: 0.5vh;
     color: var(--secondary-text);
     font-size: clamp(0.45rem, 1.8vw, 3vh);
   }
 
-  /* Grid Assignments */
+  /* Grid assignments */
   .frontend.card {
     grid-area: front;
   }
+
   .frontend.paragraph {
     grid-area: frontp;
   }
+
   .backend.card {
     grid-area: back;
   }
+
   .backend.paragraph {
     grid-area: backp;
   }
+
   .architecture.card {
     grid-area: arch;
   }
+
   .architecture.paragraph {
     grid-area: archp;
   }
+
   .devops.card {
     grid-area: devops;
   }
+
   .devops.paragraph {
     grid-area: devopsp;
   }
 
-  /* List reset for statistics grid */
+  /* -------------------------------------------------------
+     Statistics section
+     ------------------------------------------------------- */
+
   #status-flex {
     grid-area: status;
     display: flex;
@@ -213,6 +264,7 @@ main hr {
     justify-content: space-between;
     list-style: none;
   }
+
   .stat.card {
     display: flex;
     flex-direction: column;
@@ -224,72 +276,96 @@ main hr {
     border: var(--border-accent);
     border-radius: var(--radius-std);
   }
+
   .stat.card .status {
     font-size: 3.8vw;
     color: var(--text);
   }
+
   .stat.card .header {
     font-size: 2vw;
     color: var(--accent);
   }
+
   .stat.card .context {
     font-size: 1.3vw;
     color: var(--secondary-text);
   }
+
   .stat.card:hover {
     transform: var(--hover-scale);
   }
-  .project {
-    width: 90vw;
+
+  /* -------------------------------------------------------
+     Projects section
+     ------------------------------------------------------- */
+
+  #projects {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin-top: 8vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 83vw;
+    gap: 3vw;
   }
-  .project img {
+
+  #projects img {
     width: 40vw;
-    aspect-ratio: 16/9;
+    aspect-ratio: 16 / 9;
     border: var(--accent) 5px double;
     border-radius: var(--radius-pill);
   }
-  .project h3 {
+
+  #projects h3 {
     font-size: 3vw;
     text-align: start;
   }
-  .project p {
+
+  #projects p {
+    width: 40vw;
     font-size: clamp(0.45rem, 2.1vw, 8vh);
     color: var(--secondary-text);
     text-align: start;
   }
-  .project .skills {
+
+  #projects .skills {
     display: flex;
     flex-direction: row;
     justify-content: start;
     gap: 1vw;
   }
-  .project .skill {
+
+  #projects .skill {
     color: var(--accent);
     line-height: 2;
     font-size: 1.7vw;
   }
 
-  .project .card {
+  #projects .card {
     width: 40vw;
     align-self: center;
     justify-self: center;
   }
-  .project .links {
+
+  #projects .links {
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 1.5vw;
     color: white;
     font-size: 1.7vw;
-    gap: 1.5vw;
   }
-  .project svg {
+
+  #projects svg {
     width: 1.5vw;
     margin-right: 0.2vw;
   }
+
+  /* -------------------------------------------------------
+     Contact section
+     ------------------------------------------------------- */
+
   #contact-grid {
     margin-top: 8vh;
     display: grid;
@@ -301,6 +377,7 @@ main hr {
     justify-items: center;
     align-items: end;
   }
+
   #contact-grid #contact-form {
     grid-area: form;
     width: 60vw;
@@ -324,13 +401,16 @@ main hr {
     grid-area: inputs;
     background-color: var(--bg-card);
     border: rgb(30, 42, 62) 1px solid;
+    color: var(--secondary-text);
+    font-size: 1.5vw;
   }
+
   #contact-form label {
+    display: flex;
+    flex-direction: column;
     color: var(--text);
     font-size: 4vh;
-    display: flex;
     text-align: start;
-    flex-direction: column;
     line-height: 1.5;
   }
 
@@ -338,98 +418,114 @@ main hr {
     grid-area: message;
     width: calc(200% + 1vw);
     height: 30vh;
+    padding: 0.5rem;
+    resize: none;
     background-color: var(--bg-card);
     border: rgb(30, 42, 62) 1px solid;
-    padding: 0.5rem;
+    color: var(--secondary-text);
+    font-size: 1.5vw;
   }
+
   #contact-form button svg {
     width: 2vw;
   }
+
   #contact-form button:nth-of-type(1) {
     grid-area: submit;
     width: 100%;
     justify-self: center;
-    background-color: var(--accent);
-    color: var(--bg-main);
     padding: 0.5rem;
-    font-size: 2vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 1vw;
+    background-color: var(--accent);
+    color: var(--bg-main);
+    font-size: 2vw;
     border: none;
   }
+
   #contact-form button:nth-of-type(2) {
     grid-area: clear;
-    background-color: #8b3a3a;
     width: 100%;
     justify-self: center;
     padding: 0.5rem;
-    font-size: 2vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 1vw;
+    background-color: #ae2c2c;
+    font-size: 2vw;
     border: none;
   }
 
   .cards {
     grid-area: information;
+    width: 22vw;
     height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-self: end;
-    gap: 1vw;
-    width: 20vw;
+    gap: 3vh;
     line-height: 1.5;
   }
+
   .cards > div {
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     background-color: var(--bg-card);
     border-radius: var(--radius-std);
-    padding: 0.1rem;
     border: rgb(30, 42, 62) 1px solid;
   }
+
   .cards span {
     color: var(--secondary-text);
-    font-size: max(1.5vw,0.6rem);
+    font-size: max(2vw, 0.6rem);
   }
+
   #contact-grid h3 {
-    font-size: max(1.8vw,0.7rem);
     height: fit-content;
+    font-size: max(2.5vw, 0.7rem);
     line-height: 0.5;
   }
+
   .connect.card {
-    text-align: start;
     padding: 0.5vw 2vw;
-    font-size: max(1.5vw,0.6rem);
+    text-align: start;
+    font-size: max(1.5vw, 0.6rem);
   }
 
   .connect.card ul {
     list-style: none;
   }
+
   .connect.card svg {
     width: 6%;
     color: white;
     align-self: start;
   }
-
 }
 
 /* -----------------------------------------------------------
    PORTRAIT VIEW (Mobile)
    ----------------------------------------------------------- */
+
 @media screen and (orientation: portrait) {
   hr {
     width: 80vw;
   }
+
   h2 {
     font-size: 5vh;
   }
+
+  /* -------------------------------------------------------
+     Proficiency section
+     ------------------------------------------------------- */
+
   #proficiency-grid {
     display: flex;
     flex-direction: column;
@@ -439,49 +535,252 @@ main hr {
     gap: 5vh;
   }
 
-  /*proficency card*/
   .proficiency.card,
   .proficiency.paragraph {
     width: 80vw;
   }
+
   .proficiency.card {
     height: 25vh;
     padding: 1vh;
   }
+
   .proficiency.card svg {
     width: 6vh;
   }
+
   .proficiency.card h3 {
     font-size: clamp(1rem, 7vh, 5.5vw);
   }
+
   .proficiency.card span:nth-of-type(1) {
     font-size: clamp(0.1rem, 8vh, 4vw);
   }
+
   .proficiency.card span:nth-of-type(2) {
     font-size: clamp(0.1rem, 8vh, 5vw);
     padding-left: 20%;
   }
+
   .proficiency.card span:nth-of-type(3) {
     font-size: clamp(0.1rem, 8vh, 5vw);
     padding-right: 10%;
   }
 
-  /*proficency paragraphs*/
   .proficiency.paragraph {
     height: fit-content;
     text-align: center;
   }
+
   .proficiency.paragraph h3 {
     font-size: clamp(1rem, 7vh, 5.5vw);
   }
+
   .proficiency.paragraph p {
     margin-top: 0.75vh;
     color: var(--secondary-text);
     font-size: clamp(0.45rem, 4vh, 3.5vw);
   }
 
-  /*Status Cards*/
+  /* -------------------------------------------------------
+     Statistics section
+     ------------------------------------------------------- */
+
   #status-flex {
     display: none;
+  }
+
+  /* -------------------------------------------------------
+     Projects section
+     ------------------------------------------------------- */
+
+  #projects {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 83vw;
+    gap: 3vw;
+  }
+
+  #projects img {
+    width: 60vw;
+    aspect-ratio: 16 / 9;
+    border: var(--accent) 5px double;
+    border-radius: var(--radius-pill);
+  }
+
+  #projects h3 {
+    font-size: 4vh;
+    text-align: center;
+  }
+
+  #projects p {
+    width: 80vw;
+    font-size: clamp(0.45rem, 3vh, 5vw);
+    color: var(--secondary-text);
+    text-align: center;
+  }
+
+  #projects .skills {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1vw;
+  }
+
+  #projects .skill {
+    color: var(--accent);
+    line-height: 2;
+    font-size: 3vh;
+  }
+
+  #projects .card {
+    width: 80vw;
+    align-self: center;
+    justify-self: center;
+  }
+
+  #projects .links {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+    color: white;
+    font-size: 3vh;
+  }
+
+  #projects svg {
+    width: 2.4vh;
+    margin-right: 0.2vw;
+  }
+
+  /* -------------------------------------------------------
+     Contact section
+     ------------------------------------------------------- */
+
+  #contact-grid {
+    margin-top: 8vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4vh;
+  }
+
+  #contact-grid #contact-form {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+  }
+
+  #contact-form label {
+    display: flex;
+    flex-direction: column;
+    color: var(--text);
+    font-size: 3vh;
+    text-align: start;
+    line-height: 1.5;
+  }
+
+  #contact-form input,
+  #contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--bg-card);
+    border: rgb(30, 42, 62) 1px solid;
+    color: var(--secondary-text);
+    font-size: 3vh;
+  }
+
+  #contact-form textarea {
+    height: 25vh;
+    resize: none;
+  }
+
+  #contact-form button {
+    width: 100%;
+    padding: 0.9rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+    font-size: 2.5vh;
+    border: none;
+  }
+
+  #contact-form button svg {
+    width: 2.5vh;
+  }
+
+  #contact-form button:nth-of-type(1) {
+    background-color: var(--accent);
+    color: var(--bg-main);
+  }
+
+  #contact-form button:nth-of-type(2) {
+    background-color: #ae2c2c;
+  }
+
+  .cards {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    line-height: 1.5;
+  }
+
+  .cards > div {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-card);
+    border-radius: var(--radius-std);
+    border: rgb(30, 42, 62) 1px solid;
+  }
+
+  .cards span {
+    color: var(--secondary-text);
+    font-size: clamp(0.9rem, 2.8vh, 4.5vw);
+  }
+
+  #contact-grid h3 {
+    font-size: clamp(1.1rem, 3.2vh, 5vw);
+    line-height: 1.2;
+  }
+
+  .email.card,
+  .location.card,
+  .response-time.card {
+    padding: 1rem 1.25rem;
+    text-align: center;
+  }
+
+  .connect.card {
+    width: 60vw;
+    padding: 1rem 1.25rem;
+    align-self: center;
+    font-size: clamp(0.95rem, 2.8vh, 4.5vw);
+  }
+
+  .connect.card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .connect.card li {
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+  }
+
+  .connect.card svg {
+    width: 2.8vh;
+    color: white;
+    flex-shrink: 0;
   }
 }

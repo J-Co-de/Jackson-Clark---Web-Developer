@@ -1,6 +1,185 @@
+/* -----------------------------------------------------------
+   FOOTER
+   Styles the footer brand, navigation, and bottom utility row.
+   ----------------------------------------------------------- */
+
 footer {
-    height:30dvh;
-    width:100dvw;
-    background-color:var(--primary-bg);
-    border-top:var(--accent) dashed 1px;
-    }
+  width: 100dvw;
+  padding: 6vh 8vw 4vh;
+  background-color: var(--primary-bg);
+  border-top: 1px dashed var(--accent);
+}
+
+footer a,
+footer p,
+footer span {
+  font-family: var(--font-body);
+}
+
+footer a {
+  color: var(--text);
+  text-decoration: none;
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4vw;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  max-width: 40rem;
+  text-align: start;
+}
+
+.footer-brand .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: fit-content;
+  color: var(--text);
+}
+
+.footer-brand .logo svg {
+  width: clamp(1.5rem, 2.4vw, 2.5rem);
+  color: var(--accent);
+}
+
+.footer-brand .logo span {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.8rem);
+  letter-spacing: 0.04em;
+}
+
+.footer-brand p {
+  color: var(--secondary-text);
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 12rem;
+}
+
+.footer-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  text-align: end;
+}
+
+.footer-nav a {
+  font-size: clamp(0.95rem, 3vw, 1.5rem);
+  letter-spacing: 0.03em;
+}
+
+.footer-bottom {
+  padding-top: 2.5vh;
+  border-top: 1px solid rgba(176, 180, 200, 0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-bottom p {
+  color: var(--secondary-text);
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  line-height: 1.6;
+  text-align: start;
+}
+
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-pill);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px);
+}
+
+/* -----------------------------------------------------------
+   LANDSCAPE VIEW
+   ----------------------------------------------------------- */
+
+@media screen and (orientation: landscape) {
+  .footer-top {
+    flex-direction: row;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+  }
+}
+
+/* -----------------------------------------------------------
+   PORTRAIT VIEW
+   ----------------------------------------------------------- */
+
+@media screen and (orientation: portrait) {
+  footer {
+    padding: 5vh 8vw;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3vh;
+  }
+
+  .footer-brand {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-nav {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-nav ul {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 2vh;
+  }
+
+  .footer-bottom p {
+    text-align: center;
+  }
+
+  .back-to-top {
+    width: fit-content;
+  }
+}
