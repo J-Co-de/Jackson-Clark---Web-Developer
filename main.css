@@ -74,6 +74,7 @@ main hr {
 }
 
 /* Proficiency card base */
+
 .proficiency.card {
   display: grid;
   background: var(--bg-card);
@@ -166,6 +167,7 @@ main hr {
       "status status";
     column-gap: 5vw;
     row-gap: 6vw;
+    margin-top:8vh;
   }
 
   .proficiency.card,
