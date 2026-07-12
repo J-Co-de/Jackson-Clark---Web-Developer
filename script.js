@@ -26,8 +26,10 @@ if (window.innerWidth < window.innerHeight) {
 
 function setRealVH() {
   const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
 }
+
 setRealVH();
 
-
+// Use orientationchange with a delay so the browser has time to update innerHeight
+window.visualViewport.addEventListener("resize", setRealVH);

@@ -1,8 +1,8 @@
 /* -----------------------------
-   NAVIGATION BAR
+   navIGATION BAR
    Sticky header with logo and menu items.
    ----------------------------- */
-nav {
+#main-navbar {
   position: fixed;
   z-index: 1000;
   display: flex;
@@ -13,10 +13,15 @@ nav {
   background-color: var(--primary-bg);
   opacity: 0.96;
   border-bottom: 1px solid rgba(210, 180, 140, 0.4);
+  transition: transform 0.3s ease;
+}
+
+#main-navbar.hide {
+  transform: translateY(-100%);
 }
 
 /* Brand/Logo styles */
-nav .logo {
+#main-navbar .logo {
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -34,16 +39,16 @@ nav .logo {
 }
 
 /* -----------------------------
-   PORTRAIT LAYOUT (Mobile Nav)
+   PORTRAIT LAYOUT (Mobile nav)
    ----------------------------- */
 @media (orientation: portrait) {
-  nav {
+  #main-navbar {
     height: calc(var(--vh) * 10);
     opacity:1;
     transition: transform 0.3s ease;
   }
 
-  nav .logo {
+  #main-navbar .logo {
     left: 6vw;
   }
 
@@ -55,11 +60,11 @@ nav .logo {
     width: calc(var(--vh) * 6);
   }
 
-  nav ul {
+  #main-navbar ul {
     display: none;
   }
 
-  nav .hamburger {
+  #main-navbar .hamburger {
     position: absolute;
     right: 9vw;
     width: fit-content;
@@ -69,27 +74,27 @@ nav .logo {
     background-color: transparent;
   }
 
-  nav .hamburger:active {
+  #main-navbar .hamburger:active {
     transform: scale(0.95);
   }
 
-  nav .hamburger svg {
+  #main-navbar .hamburger svg {
     width: calc(var(--vh) * 6);
   }
 }
 
 /* -----------------------------
-   LANDSCAPE LAYOUT (Desktop Nav)
+   LANDSCAPE LAYOUT (Desktop nav)
    ----------------------------- */
 @media (orientation: landscape) {
-  nav {
+  #main-navbar {
     height: calc(var(--vh) * 15);
   }
 
-  nav .logo {
+  #main-navbar .logo {
     left: 3vw;
   }
-  nav a {
+  #main-navbar a {
     text-decoration: none;
   }
   .logo span {
@@ -100,26 +105,26 @@ nav .logo {
     width: 3vw;
   }
 
-  nav ul {
+  #main-navbar ul {
     list-style: none;
     position: absolute;
     right: 3vw;
   }
 
-  nav ul a {
+  #main-navbar ul a {
     color: white;
     text-decoration: none;
   }
-  nav .hamburger {
+  #main-navbar .hamburger {
     display: none;
   }
 
-  nav li {
+  #main-navbar li {
     display: inline;
     padding: 1.5vw;
   }
 
-  nav a {
+  #main-navbar a {
     position: relative;
     display: inline-block;
     font-family: var(--font-subheading);
@@ -128,13 +133,13 @@ nav .logo {
     transition: color 0.3s ease, transform 0.2s ease;
   }
 
-  nav .slash {
+  #main-navbar .slash {
     font-size: 1.75vw;
     color: var(--secondary-text);
   }
 
-  nav .norm-nav:focus,
-  nav .norm-nav:hover {
+  #main-navbar .norm-nav:focus,
+  #main-navbar .norm-nav:hover {
     color: var(--accent);
   }
 
@@ -142,7 +147,7 @@ nav .logo {
     transform: scale(0.95);
   }
 
-  nav .norm-nav::after {
+  #main-navbar .norm-nav::after {
     content: "";
     position: absolute;
     left: 0;
@@ -155,7 +160,7 @@ nav .logo {
     transition: transform 0.3s ease;
   }
 
-  .resume-nav {
+  #main-navbar ul a.resume-nav {
     color: var(--primary-bg);
     background-color: var(--accent);
     font-weight: bold;
@@ -168,18 +173,18 @@ nav .logo {
   }
 
   @media (hover: hover) {
-    nav:hover .logo svg {
+    #main-navbar:hover .logo svg {
       transform: rotate(-15deg);
     }
 
-    nav .norm-nav:hover::after {
+    #main-navbar .norm-nav:hover::after {
       transform: scaleX(1);
     }
 
-    nav a:hover {
+    #main-navbar a:hover {
       transform: scale(0.95);
     }
-    nav .resume-nav:focus {
+    #main-navbar .resume-nav:focus {
       filter: brightness(110%);
     }
   }
