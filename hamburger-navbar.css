@@ -1,4 +1,53 @@
 #hamburger-navbar {
-    z-index:999999;
-    position:fixed;
+  z-index: 999999;
+  height:calc(var(--vh) * 100);
+  width: 100vw;
+  position: fixed; 
+    
+}
+#hamburger-blur {
+  height:calc(var(--vh) * 100);;
+  width:35vw;
+  /* From https://css.glass */
+  background: var(--bg-main);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  opacity:0.5;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+#menu { 
+    width:65vw;
+    height:calc(var(--vh) * 100);
+    background: var(--bg-main);
+    position:absolute;
+    top:0;
+    left:35vw;
+}
+
+#brand {
+    display:flex;
+    flex-direction:row;
+    width:65vw;
+    height:50px;
+    padding-right:5vw;
+    align-items:center;
+    justify-content:start;
+    color:var(--accent);
+    border:3px var(--accent) solid;
+}
+#brand svg {
+    width:8vw;
+}
+#brand span {
+    font-size: 6vw;
+    font-family: var(--font-heading);
+}
+#hamburger-exit {
+    position: fixed;
+    right:5vw;
+    top:calc(var(--vh) * 2);
+    color:var(--secondary-text);
+    cursor:pointer;
 }

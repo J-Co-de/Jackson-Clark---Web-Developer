@@ -11,9 +11,9 @@ if (window.innerWidth < window.innerHeight) {
   let lastScrollY = window.scrollY;
 
   window.addEventListener("scroll", () => {
-    const nav = document.querySelector("nav");
+    const nav = document.getElementById("main-navbar");
 
-    if (window.scrollY > lastScrollY) {
+    if (window.scrollY > lastScrollY && window.scrollY >= 10) {
       // scrolling down
       nav.classList.add("hide");
     } else {
@@ -33,3 +33,5 @@ setRealVH();
 
 // Use orientationchange with a delay so the browser has time to update innerHeight
 window.visualViewport.addEventListener("resize", setRealVH);
+
+document.getElementById("hamburger-exit").addEventListener("click", () => document.getElementById("hamburgerNavbar").setAttribute("hidden",""));
