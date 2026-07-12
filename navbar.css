@@ -38,7 +38,7 @@ nav .logo {
    ----------------------------- */
 @media (orientation: portrait) {
   nav {
-    height: 10dvh;
+    height: calc(var(--vh) * 10);
     opacity:1;
     transition: transform 0.3s ease;
   }
@@ -52,7 +52,7 @@ nav .logo {
   }
 
   .logo svg {
-    width: 6vh;
+    width: calc(var(--vh) * 6);
   }
 
   nav ul {
@@ -74,7 +74,7 @@ nav .logo {
   }
 
   nav .hamburger svg {
-    width: 6vh;
+    width: calc(var(--vh) * 6);
   }
 }
 
@@ -83,7 +83,7 @@ nav .logo {
    ----------------------------- */
 @media (orientation: landscape) {
   nav {
-    height: 15dvh;
+    height: calc(var(--vh) * 15);
   }
 
   nav .logo {

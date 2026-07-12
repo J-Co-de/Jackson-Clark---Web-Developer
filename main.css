@@ -12,7 +12,7 @@ main {
   align-items: center;
   width: 100dvw;
   height: fit-content;
-  padding: 8vh 10vw;
+  padding: calc(var(--vh) * 8) 10vw;
   text-align: center;
   background-color: var(--bg-main);
 }
@@ -35,7 +35,7 @@ main span {
 main hr {
   justify-self: center;
   border-color: var(--accent);
-  margin: 7vh 0;
+  margin: calc(var(--vh) * 7) 0;
 }
 
 /* -----------------------------------------------------------
@@ -136,7 +136,7 @@ main hr {
   height: 0;
   background-color: var(--bg-progress);
   border-radius: var(--radius-pill);
-  border: 0.75vh dashed var(--border-dashed);
+  border: calc(var(--vh) * 0.75) dashed var(--border-dashed);
 }
 
 /* -----------------------------------------------------------
@@ -167,13 +167,13 @@ main hr {
       "status status";
     column-gap: 5vw;
     row-gap: 6vw;
-    margin-top:8vh;
+    margin-top:calc(var(--vh) * 8);
   }
 
   .proficiency.card,
   .proficiency.paragraph {
     width: 40vw;
-    height: 30vh;
+    height: calc(var(--vh) * 30);
   }
 
   .proficiency.card {
@@ -217,9 +217,9 @@ main hr {
   }
 
   .proficiency.paragraph p {
-    margin-top: 0.5vh;
+    margin-top: calc(var(--vh) * 0.5);
     color: var(--secondary-text);
-    font-size: clamp(0.45rem, 1.8vw, 3vh);
+    font-size: clamp(0.45rem, 1.8vw, calc(var(--vh) * 3));
   }
 
   /* Grid assignments */
@@ -326,7 +326,7 @@ main hr {
 
   #projects p {
     width: 40vw;
-    font-size: clamp(0.45rem, 2.1vw, 8vh);
+    font-size: clamp(0.45rem, 2.1vw, calc(var(--vh) * 8));
     color: var(--secondary-text);
     text-align: start;
   }
@@ -369,13 +369,13 @@ main hr {
      ------------------------------------------------------- */
 
   #contact-grid {
-    margin-top: 8vh;
+    margin-top: calc(var(--vh) * 8);
     display: grid;
     grid-template-areas:
       "form information"
       "form information";
     grid-template-columns: 65vw 30vw;
-    grid-template-rows: 40vh 23.5vh;
+    grid-template-rows: calc(var(--vh) * 40) calc(var(--vh) * 23.5);
     justify-items: center;
     align-items: end;
   }
@@ -383,17 +383,17 @@ main hr {
   #contact-grid #contact-form {
     grid-area: form;
     width: 60vw;
-    height: 60vh;
+    height: calc(var(--vh) * 60);
     height: fit-content;
     display: grid;
     grid-template-columns: 30vw 30vw;
-    grid-template-rows: 12vh 40vh 8vh;
+    grid-template-rows: calc(var(--vh) * 12) calc(var(--vh) * 40) calc(var(--vh) * 8);
     grid-template-areas:
       "inputs inputs"
       "message message"
       "submit clear";
     column-gap: 1vw;
-    row-gap: 1vh;
+    row-gap: calc(var(--vh) * 1);
   }
 
   #contact-form input {
@@ -411,7 +411,7 @@ main hr {
     display: flex;
     flex-direction: column;
     color: var(--text);
-    font-size: 4vh;
+    font-size: calc(var(--vh) * 4);
     text-align: start;
     line-height: 1.5;
   }
@@ -419,7 +419,7 @@ main hr {
   #contact-form textarea {
     grid-area: message;
     width: calc(200% + 1vw);
-    height: 30vh;
+    height: calc(var(--vh) * 30);
     padding: 0.5rem;
     resize: none;
     background-color: var(--bg-card);
@@ -472,7 +472,7 @@ main hr {
     flex-direction: column;
     justify-content: center;
     align-self: end;
-    gap: 3vh;
+    gap: calc(var(--vh) * 3);
     line-height: 1.5;
   }
 
@@ -524,7 +524,7 @@ main hr {
   }
 
   h2 {
-    font-size: 5vh;
+    font-size: calc(var(--vh) * 5);
   }
 
   /* -------------------------------------------------------
@@ -536,8 +536,8 @@ main hr {
     flex-direction: column;
     align-items: center;
     justify-self: center;
-    margin-top: 8vh;
-    gap: 5vh;
+    margin-top: calc(var(--vh) * 8);
+    gap: calc(var(--vh) * 5);
   }
 
   .proficiency.card,
@@ -546,29 +546,29 @@ main hr {
   }
 
   .proficiency.card {
-    height: 25vh;
-    padding: 1vh;
+    height: calc(var(--vh) * 25);
+    padding: calc(var(--vh) * 1);
   }
 
   .proficiency.card svg {
-    width: 6vh;
+    width: calc(var(--vh) * 6);
   }
 
   .proficiency.card h3 {
-    font-size: clamp(1rem, 7vh, 5.5vw);
+    font-size: clamp(1rem, calc(var(--vh) * 7), 5.5vw);
   }
 
   .proficiency.card span:nth-of-type(1) {
-    font-size: clamp(0.1rem, 8vh, 4vw);
+    font-size: clamp(0.1rem, calc(var(--vh) * 8), 4vw);
   }
 
   .proficiency.card span:nth-of-type(2) {
-    font-size: clamp(0.1rem, 8vh, 5vw);
+    font-size: clamp(0.1rem, calc(var(--vh) * 8), 5vw);
     padding-left: 20%;
   }
 
   .proficiency.card span:nth-of-type(3) {
-    font-size: clamp(0.1rem, 8vh, 5vw);
+    font-size: clamp(0.1rem, calc(var(--vh) * 8), 5vw);
     padding-right: 10%;
   }
 
@@ -578,13 +578,13 @@ main hr {
   }
 
   .proficiency.paragraph h3 {
-    font-size: clamp(1rem, 7vh, 5.5vw);
+    font-size: clamp(1rem, calc(var(--vh) * 7), 5.5vw);
   }
 
   .proficiency.paragraph p {
-    margin-top: 0.75vh;
+    margin-top: calc(var(--vh) * 0.75);
     color: var(--secondary-text);
-    font-size: clamp(0.45rem, 4vh, 3.5vw);
+    font-size: clamp(0.45rem, calc(var(--vh) * 4), 3.5vw);
   }
 
   /* -------------------------------------------------------
@@ -617,13 +617,13 @@ main hr {
   }
 
   #projects h3 {
-    font-size: 4vh;
+    font-size: calc(var(--vh) * 4);
     text-align: center;
   }
 
   #projects p {
     width: 80vw;
-    font-size: clamp(0.45rem, 3vh, 5vw);
+    font-size: clamp(0.45rem, calc(var(--vh) * 3), 5vw);
     color: var(--secondary-text);
     text-align: center;
   }
@@ -638,7 +638,7 @@ main hr {
   #projects .skill {
     color: var(--accent);
     line-height: 2;
-    font-size: 3vh;
+    font-size: calc(var(--vh) * 3);
   }
 
   #projects .card {
@@ -655,11 +655,11 @@ main hr {
     align-items: center;
     gap: 5vw;
     color: white;
-    font-size: 3vh;
+    font-size: calc(var(--vh) * 3);
   }
 
   #projects svg {
-    width: 2.4vh;
+    width: calc(var(--vh) * 2.4);
     margin-right: 0.2vw;
   }
 
@@ -668,25 +668,25 @@ main hr {
      ------------------------------------------------------- */
 
   #contact-grid {
-    margin-top: 8vh;
+    margin-top: calc(var(--vh) * 8);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4vh;
+    gap: calc(var(--vh) * 4);
   }
 
   #contact-grid #contact-form {
     width: 80vw;
     display: flex;
     flex-direction: column;
-    gap: 2vh;
+    gap: calc(var(--vh) * 2);
   }
 
   #contact-form label {
     display: flex;
     flex-direction: column;
     color: var(--text);
-    font-size: 3vh;
+    font-size: calc(var(--vh) * 3);
     text-align: start;
     line-height: 1.5;
   }
@@ -698,11 +698,11 @@ main hr {
     background-color: var(--bg-card);
     border: rgb(30, 42, 62) 1px solid;
     color: var(--secondary-text);
-    font-size: 3vh;
+    font-size: calc(var(--vh) * 3);
   }
 
   #contact-form textarea {
-    height: 25vh;
+    height: calc(var(--vh) * 25);
     resize: none;
   }
 
@@ -714,12 +714,12 @@ main hr {
     justify-content: center;
     align-items: center;
     gap: 3vw;
-    font-size: 2.5vh;
+    font-size: calc(var(--vh) * 2.5);
     border: none;
   }
 
   #contact-form button svg {
-    width: 2.5vh;
+    width: calc(var(--vh) * 2.5);
   }
 
   #contact-form button:nth-of-type(1) {
@@ -736,7 +736,7 @@ main hr {
     width: 80vw;
     display: flex;
     flex-direction: column;
-    gap: 2vh;
+    gap: calc(var(--vh) * 2);
     line-height: 1.5;
   }
 
@@ -750,11 +750,11 @@ main hr {
 
   .cards span {
     color: var(--secondary-text);
-    font-size: clamp(0.9rem, 2.8vh, 4.5vw);
+    font-size: clamp(0.9rem, calc(var(--vh) * 2.8), 4.5vw);
   }
 
   #contact-grid h3 {
-    font-size: clamp(1.1rem, 3.2vh, 5vw);
+    font-size: clamp(1.1rem, calc(var(--vh) * 3.2), 5vw);
     line-height: 1.2;
   }
 
@@ -769,7 +769,7 @@ main hr {
     width: 60vw;
     padding: 1rem 1.25rem;
     align-self: center;
-    font-size: clamp(0.95rem, 2.8vh, 4.5vw);
+    font-size: clamp(0.95rem, calc(var(--vh) * 2.8), 4.5vw);
   }
 
   .connect.card ul {
@@ -785,7 +785,7 @@ main hr {
   }
 
   .connect.card svg {
-    width: 2.8vh;
+    width: calc(var(--vh) * 2.8);
     color: white;
     flex-shrink: 0;
   }

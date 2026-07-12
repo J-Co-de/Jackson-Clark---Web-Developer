@@ -5,7 +5,7 @@
 header {
   position: relative;
   z-index: 1;
-  height: 105dvh;
+  height: calc(var(--vh) * 105);
   width: 100dvw;
   background-color: var(--primary-bg);
 }
@@ -16,7 +16,7 @@ header::before {
   top: 0;
   left: 0;
   width: 100dvw;
-  height: 105dvh;
+  height: calc(var(--vh) * 105);
   opacity: 0.1;
   /* Note: Background images are assigned in orientation media queries */
   z-index: -1;
@@ -35,7 +35,7 @@ header::before {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 85vh;
+  height: calc(var(--vh) * 85);
   width: 100dvw;
 }
 
@@ -54,14 +54,14 @@ header span {
 
 header hr {
   border-color: var(--accent);
-  margin-top: 2vh;
+  margin-top: calc(var(--vh) * 2);
 }
 
 header h2 {
   font-family: var(--font-subheading);
   font-weight: 400;
   color: var(--text);
-  margin-top: 2vh;
+  margin-top: calc(var(--vh) * 2);
 }
 
 header p {
@@ -83,7 +83,7 @@ header a {
   align-items: center;
   justify-content: center;
   width: max(180px, 20vw);
-  height: max(50px, 6vh);
+  height: max(50px, calc(var(--vh) * 6));
   font-family: var(--font-subheading);
   text-decoration: none;
   text-wrap: nowrap;
@@ -138,17 +138,17 @@ header a:active {
   }
 
   .hero.content {
-    height: 90vh;
-    margin-top: 5vh;
+    height: calc(var(--vh) * 90);
+    margin-top: calc(var(--vh) * 5);
   }
 
   .hero.content h1 {
-    font-size: clamp(3rem, 8vh, 9rem);
+    font-size: clamp(3rem, calc(var(--vh) * 8), 9rem);
   }
 
   header span {
-    font-size: clamp(1rem, 4vh, 6rem);
-    margin-top: 3vh;
+    font-size: clamp(1rem, calc(var(--vh) * 4), 6rem);
+    margin-top: calc(var(--vh) * 3);
   }
 
   header span > span {
@@ -163,36 +163,36 @@ header a:active {
 
   header hr {
     width: 70vw;
-    margin-top: 2vh;
+    margin-top: calc(var(--vh) * 2);
   }
 
   header h2 {
-    font-size: clamp(1rem, 4vh, 7vw);
+    font-size: clamp(1rem, calc(var(--vh) * 4), 7vw);
   }
 
   header p {
-    font-size: clamp(0.8rem, 2.8vh, 2.5rem);
+    font-size: clamp(0.8rem, calc(var(--vh) * 2.8), 2.5rem);
     margin-top: 2vh;
     width: max(80vw, 315px);
   }
 
   .hero-btns {
-    gap: 4vh;
+    gap: calc(var(--vh) * 4);
     flex-direction: column;
-    margin-top: 4vh;
-    margin-bottom: 2vh;
+    margin-top: calc(var(--vh) * 4);
+    margin-bottom: calc(var(--vh) * 2);
   }
 
   header a {
-    font-size: clamp(1.1rem, 4vh, 3rem);
+    font-size: clamp(1.1rem, calc(var(--vh) * 4), 3rem);
     width: max(180px, 70vw);
-    height: max(50px, 8vh);
+    height: max(50px, calc(var(--vh) * 8));
   }
 
   .attention-arrow {
     position: absolute;
     bottom: 0;
-    height: 10vh;
+    height: calc(var(--vh) * 10);
     align-self: center;
   }
 }
@@ -206,8 +206,8 @@ header a:active {
   }
 
   .hero.content {
-    height: 90vh;
-    margin-top: 13vh;
+    height: calc(var(--vh) * 90);
+    margin-top: calc(var(--vh) * 13);
   }
 
   .hero.content h1 {
@@ -216,7 +216,7 @@ header a:active {
 
   .hero.content span {
     font-size: clamp(1.2rem, 4vw, 2.75rem);
-    margin-top: 1vh;
+    margin-top: calc(var(--vh) * 1);
   }
 
   .hero.content hr {
@@ -229,13 +229,13 @@ header a:active {
 
   @media (max-height: 450px) {
     .hero.content h2 {
-      margin-bottom: 3vh;
+      margin-bottom: calc(var(--vh) * 3);
     }
   }
 
   .hero.content p {
     font-size: clamp(0.8rem, 3.5vw, 1.8rem);
-    margin-top: 1vh;
+    margin-top: calc(var(--vh) * 1);
     width: max(80dvw, 315px);
   }
 
@@ -248,11 +248,11 @@ header a:active {
   .hero.content a {
     font-size: clamp(1.1rem, 4vw, 4rem);
     width: max(180px, 30vw);
-    height: max(50px, 12vh);
+    height: max(50px, calc(var(--vh) * 12));
   }
 
   .attention-arrow {
-    height: max(50px, 12vh);
+    height: max(50px, calc(var(--vh) * 12));
   }
   .hero.content .hero-btns {
     display: flex;
@@ -261,7 +261,7 @@ header a:active {
     align-items:center;
     width: 80vw;
     gap: 2vw;
-    height:20vh;
+    height:calc(var(--vh) * 20);
   }
   @media (max-height:609px) {
     .hero.content .hero-btns {
@@ -274,13 +274,13 @@ header a:active {
     }
 
     .hero.content span {
-      margin-top: 0.5vh;
-      margin-bottom: 1vh;
+      margin-top: calc(var(--vh) * 0.5);
+      margin-bottom: calc(var(--vh) * 1);
     }
 
     .hero.content p {
       font-size: clamp(0.8rem, 3.5vw, 2.2rem);
-      margin-top: 2vh;
+      margin-top: calc(var(--vh) * 2);
     }
   }
 }

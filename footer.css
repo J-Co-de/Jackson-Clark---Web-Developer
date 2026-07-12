@@ -5,7 +5,7 @@
 
 footer {
   width: 100dvw;
-  padding: 6vh 8vw 4vh;
+  padding: calc(var(--vh) * 6) 8vw calc(var(--vh) * 4);
   background-color: var(--primary-bg);
   border-top: 1px dashed var(--accent);
 }
@@ -31,7 +31,7 @@ footer a:hover {
 .footer-content {
   display: flex;
   flex-direction: column;
-  gap: 4vh;
+  gap: calc(var(--vh) * 4);
 }
 
 .footer-top {
@@ -44,7 +44,7 @@ footer a:hover {
 .footer-brand {
   display: flex;
   flex-direction: column;
-  gap: 2vh;
+  gap: calc(var(--vh) * 2);
   max-width: 40rem;
   text-align: start;
 }
@@ -94,7 +94,7 @@ footer a:hover {
 }
 
 .footer-bottom {
-  padding-top: 2.5vh;
+  padding-top: calc(var(--vh) * 2.5);
   border-top: 1px solid rgba(176, 180, 200, 0.18);
   display: flex;
   justify-content: space-between;
@@ -144,14 +144,14 @@ footer a:hover {
 
 @media screen and (orientation: portrait) {
   footer {
-    padding: 5vh 8vw;
+    padding: calc(var(--vh) * 5) 8vw;
   }
 
   .footer-top {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 3vh;
+    gap: calc(var(--vh) * 3);
   }
 
   .footer-brand {
@@ -172,7 +172,7 @@ footer a:hover {
   .footer-bottom {
     flex-direction: column;
     text-align: center;
-    gap: 2vh;
+    gap: calc(var(--vh) * 2);
   }
 
   .footer-bottom p {
