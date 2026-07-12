@@ -34,4 +34,23 @@ setRealVH();
 // Use orientationchange with a delay so the browser has time to update innerHeight
 window.visualViewport.addEventListener("resize", setRealVH);
 
-document.getElementById("hamburger-exit").addEventListener("click", () => document.getElementById("hamburgerNavbar").setAttribute("hidden",""));
+// Hamburger menu logic
+const hamButton = document.querySelector("#main-navbar .hamburger");
+const hamExitIcon = document.getElementById("hamburger-exit");
+const hamNavbar = document.getElementById("hamburger-navbar");
+
+if (hamButton && hamExitIcon && hamNavbar) {
+  // Open menu
+  hamButton.addEventListener("click", () => {
+    hamNavbar.removeAttribute("hidden");
+    hamButton.setAttribute("aria-expanded", "true");
+    hamButton.setAttribute("aria-label", "Close Menu");
+  });
+
+  // Close menu
+  hamExitIcon.addEventListener("click", () => {
+    hamNavbar.setAttribute("hidden", "");
+    hamButton.setAttribute("aria-expanded", "false");
+    hamButton.setAttribute("aria-label", "Open Menu");
+  });
+}

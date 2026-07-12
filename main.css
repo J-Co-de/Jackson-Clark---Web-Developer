@@ -638,7 +638,7 @@ main hr {
   #projects .skill {
     color: var(--accent);
     line-height: 2;
-    font-size: calc(var(--vh) * 3);
+    font-size: 5vw;
   }
 
   #projects .card {
