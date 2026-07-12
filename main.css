@@ -729,6 +729,7 @@ main hr {
 
   #contact-form button:nth-of-type(2) {
     background-color: #ae2c2c;
+    color: var(--bg-main);
   }
 
   .cards {

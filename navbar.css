@@ -39,7 +39,8 @@ nav .logo {
 @media (orientation: portrait) {
   nav {
     height: 10dvh;
-    opacity: 1;
+    opacity:1;
+    transition: transform 0.3s ease;
   }
 
   nav .logo {
