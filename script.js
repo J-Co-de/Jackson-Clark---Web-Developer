@@ -63,7 +63,9 @@ enableNavLift();
 window.visualViewport.addEventListener("resize", () => {
   setRealVH();
   enableNavLift();
-  allLinks.forEach((link) => linkNavHide(link));
+  allLinks.forEach((link) => {
+    linkNavHide(link);
+  });
 });
 
 // ===============================
@@ -124,7 +126,9 @@ if (contactForm) {
 
     if (!namePattern.test(nameInput.value)) {
       e.preventDefault();
-      nameInput.setCustomValidity("Enter your full name with capitalized words, like John Doe.");
+      nameInput.setCustomValidity(
+        "Enter your full name with capitalized words, like John Doe.",
+      );
 
       // Safari/older browsers need the reportValidity() call to show the bubble
       if (typeof nameInput.reportValidity === "function") {

@@ -458,7 +458,7 @@ main hr {
     justify-content: center;
     align-items: center;
     gap: 1vw;
-    background-color: #ae2c2c;
+    background-color: var(--secondary-text);
     color: var(--bg-main);
     font-size: 2vw;
     border: none;
@@ -728,7 +728,7 @@ main hr {
   }
 
   #contact-form button:nth-of-type(2) {
-    background-color: #ae2c2c;
+    background-color: var(--secondary-text);
     color: var(--bg-main);
   }
 
