@@ -74,13 +74,13 @@
         </svg>
       </button>
       <ul>
-        <li><a href="#about-port" class="norm-nav">About</a></li>
+        <li><a href="#about" class="norm-nav">About</a></li>
         <li class="norm-curs slash" aria-hidden="true">/</li>
-        <li><a href="#projects-port" class="norm-nav">Projects</a></li>
+        <li><a href="#projects" class="norm-nav">Projects</a></li>
         <li class="norm-curs slash" aria-hidden="true">/</li>
-        <li><a href="#contact-port" class="norm-nav">Contact</a></li>
+        <li><a href="#contact" class="norm-nav">Contact</a></li>
         <li>
-          <a href="/resume.pdf" target="_blank" class="resume-nav">Resume</a>
+          <a href="/Images/resume.png" target="_blank" class="resume-nav">Resume</a>
         </li>
       </ul>
     </nav>
@@ -123,19 +123,19 @@
         <hr />
         <ul id="hamburger-nav-list">
           <li>
-            <a href="#about-port">About</a>
+            <a href="#about">About</a>
           </li>
           <li><hr /></li>
           <li>
-            <a href="#projects-port">Projects</a>
+            <a href="#projects">Projects</a>
           </li>
           <li><hr /></li>
           <li>
-            <a href="#contact-port">Contact</a>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
-        <hr/>
-        <a href="/resume.pdf" target="_blank" class="resume-nav"
+        <hr />
+        <a href="/Images/resume.png" target="_blank" class="resume-nav"
           >Download Resume</a
         >
       </div>
@@ -176,7 +176,6 @@
     </header>
 
     <main id="main-content">
-      <div id="about-port"></div>
       <hr aria-hidden="true" />
       <section id="about" aria-labelledby="about-heading">
         <h2 id="about-heading">What do I Bring to the Table?</h2>
@@ -367,7 +366,6 @@
           </ul>
         </div>
       </section>
-      <div id="projects-port"></div>
       <hr />
       <section id="projects" aria-labelledby="about-heading">
         <h2>Let My Work Speak for Itself!</h2>
@@ -484,18 +482,24 @@
           </div>
         </div>
       </section>
-      <div id="contact-port"></div>
+
       <hr aria-hidden="true" />
       <section id="contact" aria-labelledby="contact-heading">
         <h2 id="contact-heading">Let’s Build Something Great!</h2>
         <div id="contact-grid">
-          <form id="contact-form" action="#" method="POST">
+          <form
+            id="contact-form"
+            action="https://formsubmit.co/jclark3987@gmail.com"
+            method="POST"
+          >
             <label for="name">
               Name
               <input
                 type="text"
                 id="name"
                 name="name"
+                pattern="[A-Z][a-zA-Z']+(?: [A-Z][a-zA-Z']+)+"
+                title="Full name with each word capitalised, e.g. John Doe"
                 placeholder="John Doe"
                 required
                 autocomplete="name"
@@ -677,9 +681,9 @@
           </div>
           <div class="footer-nav" aria-label="Footer Navigation">
             <ul>
-              <li><a href="#about-port">About</a></li>
-              <li><a href="#projects-port">Projects</a></li>
-              <li><a href="#contact-port">Contact</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
         </div>

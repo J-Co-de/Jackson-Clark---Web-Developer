@@ -76,6 +76,10 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--vh) * 22);
+  @media (orientation: portrait) {
+  scroll-padding-top: calc(var(--vh) * 7);
+  }
   overflow-x: hidden;
 }
 
