@@ -172,7 +172,7 @@ header a:active {
 
   header p {
     font-size: clamp(0.8rem, calc(var(--vh) * 2.8), 2.5rem);
-    margin-top: 2vh;
+    margin-top: calc(var(--vh) * 2);
     width: max(80vw, 315px);
   }
 
