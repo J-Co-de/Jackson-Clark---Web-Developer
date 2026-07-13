@@ -234,7 +234,7 @@ header a:active {
   }
 
   .hero.content p {
-    font-size: clamp(0.8rem, 3.5vw, 1.8rem) !important;
+    font-size: clamp(0.8rem, 3vw, 1.8rem) ;
     margin-top: calc(var(--vh) * 1);
     width: max(80dvw, 315px);
   }
