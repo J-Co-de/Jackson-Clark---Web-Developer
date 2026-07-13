@@ -69,7 +69,7 @@
     right: 9vw;
     width: fit-content;
     height: fit-content;
-    color: var(--accent);
+    color: var(--secondary-text);
     border: none;
     background-color: transparent;
   }
