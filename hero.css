@@ -138,7 +138,7 @@ header a:active {
   }
 
   .hero.content {
-    height: calc(var(--vh) * 90);
+    height: calc(var(--vh) * 95);
     margin-top: calc(var(--vh) * 5);
   }
 
