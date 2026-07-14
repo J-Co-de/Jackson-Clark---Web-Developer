@@ -64,7 +64,7 @@ window.visualViewport.addEventListener("resize", () => {
 });
 
 window.addEventListener("orientationchange", () => {
-  setTimeout(setRealVH,100)
+  setTimeout(setRealVH, 100);
 });
 
 // ===============================
@@ -103,7 +103,7 @@ const linkNavHide = (link) => {
   if (!link.target && window.innerWidth < window.innerHeight) {
     nav.classList.add("hide");
     navLocked = true;
-    setTimeout(() => (navLocked = false), 1000);
+    setTimeout(() => (navLocked = false), 1500);
   }
 };
 
@@ -140,3 +140,65 @@ if (contactForm) {
     nameInput.setCustomValidity("");
   });
 }
+const form = document.querySelector("form");
+const result = document.getElementById("result");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+  const json = JSON.stringify(Object.fromEntries(formData));
+
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: json,
+  })
+    .then(async (response) => {
+      const data = await response.json();
+
+      if (response.status === 200) {
+        // SUCCESS
+        confetti({
+          particleCount: 150,
+          spread: 100,
+          origin: { y: 0.8 },
+          colors: ["#00ff00"],
+        });
+
+        result.innerText = "Message successfully sent.";
+        result.style.color = "#00ff00";
+      } else {
+        // FAIL
+        confetti({
+          particleCount: 150,
+          spread: 100,
+          origin: { y: 0.8 },
+          colors: ["#ff0000"],
+        });
+
+        result.innerText =
+          "Message failed to send. Please contact directly instead.";
+        result.style.color = "#ff0000";
+      }
+    })
+    .catch(() => {
+      // NETWORK FAIL
+      confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { y: 0.8 },
+        colors: ["#ff0000"],
+      });
+
+      result.innerText =
+        "Message failed to send. Please contact directly instead.";
+      result.style.color = "#ff0000";
+    })
+    .then(() => {
+      form.reset();
+    });
+});

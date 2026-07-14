@@ -801,3 +801,7 @@ main hr {
     flex-shrink: 0;
   }
 }
+
+#result {
+  margin-top:calc(var(--vh) * 2);
+}

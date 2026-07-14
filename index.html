@@ -26,16 +26,6 @@
     <link href="styles.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="disclaimer-modal" class="modal-overlay">
-      <div class="modal-content">
-        <h2>Notice</h2>
-        <p>
-          Please be advised that this website is not intended to be factual
-          until 2027. Use all information at your own risk.
-        </p>
-        <button id="close-modal">I Understand</button>
-      </div>
-    </div>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <nav id="main-navbar" aria-label="Primary Navigation">
       <a href="#" class="logo norm-curs" aria-label="Jackson Clark Home">
@@ -489,6 +479,7 @@
             action="https://api.web3forms.com/submit"
             method="POST"
           >
+            <input type="hidden" name="redirect" value="" />
             <input
               type="hidden"
               name="access_key"
@@ -568,6 +559,9 @@
               Reset All Fields
             </button>
           </form>
+          <span id="result"></span>
+          <div id="confetti-container"></div>
+
           <div class="cards">
             <h3>Email</h3>
             <div class="email card">
@@ -694,6 +688,8 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script src="script.js"></script>
   </body>
