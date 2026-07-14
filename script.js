@@ -40,7 +40,7 @@ setRealVH();
 function navLift() {
   if (navLocked) return;
 
-  if (window.scrollY > lastScrollY && window.scrollY >= 10) {
+  if (window.scrollY > lastScrollY && window.scrollY >= 500) {
     nav.classList.add("hide"); // scrolling down
   } else {
     nav.classList.remove("hide"); // scrolling up
@@ -57,7 +57,6 @@ function enableNavLift() {
     window.removeEventListener("scroll", navLift);
   }
 }
-
 enableNavLift();
 
 window.visualViewport.addEventListener("resize", () => {
