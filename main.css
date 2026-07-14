@@ -62,7 +62,7 @@ main hr {
 #projects img:hover,
 .cards > div:hover {
   transform: var(--hover-scale);
-  border-color:var(--accent);
+  border-color: var(--accent);
 }
 
 #contact-form button {
@@ -167,7 +167,7 @@ main hr {
       "status status";
     column-gap: 5vw;
     row-gap: 6vw;
-    margin-top:calc(var(--vh) * 8);
+    margin-top: calc(var(--vh) * 8);
   }
 
   .proficiency.card,
@@ -387,7 +387,9 @@ main hr {
     height: fit-content;
     display: grid;
     grid-template-columns: 30vw 30vw;
-    grid-template-rows: calc(var(--vh) * 12) calc(var(--vh) * 40) calc(var(--vh) * 8);
+    grid-template-rows: calc(var(--vh) * 12) calc(var(--vh) * 40) calc(
+        var(--vh) * 8
+      );
     grid-template-areas:
       "inputs inputs"
       "message message"
@@ -491,8 +493,8 @@ main hr {
 
   #contact-grid h3 {
     height: fit-content;
-    text-align:left;
-    width:110%;
+    text-align: left;
+    width: 110%;
     font-size: max(3vw, 0.7rem);
     line-height: 0.5;
   }
@@ -500,15 +502,20 @@ main hr {
   .connect.card {
     padding: 0.5vw 2vw;
     text-align: start;
-    font-size: max(1.5vw, 0.6rem);
   }
 
+  .connect.card span {
+    font-size: 1.75vw;
+  }
   .connect.card ul {
     list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 
   .connect.card svg {
-    width: 6%;
+    width: 15%;
     color: white;
     align-self: start;
   }
@@ -766,16 +773,20 @@ main hr {
   }
 
   .connect.card {
-    width: 60vw;
+    width: 80vw;
     padding: 1rem 1.25rem;
     align-self: center;
+  }
+  .connect.card span {
     font-size: clamp(0.95rem, calc(var(--vh) * 2.8), 4.5vw);
   }
-
   .connect.card ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 
   .connect.card li {
