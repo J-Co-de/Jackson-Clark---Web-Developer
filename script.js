@@ -40,7 +40,7 @@ setRealVH();
 function navLift() {
   if (navLocked) return;
 
-  if (window.scrollY > lastScrollY && window.scrollY >= 500) {
+  if (window.scrollY > lastScrollY && window.scrollY >= 100) {
     nav.classList.add("hide"); // scrolling down
   } else {
     nav.classList.remove("hide"); // scrolling up
@@ -60,11 +60,11 @@ function enableNavLift() {
 enableNavLift();
 
 window.visualViewport.addEventListener("resize", () => {
-  setRealVH();
   enableNavLift();
-  allLinks.forEach((link) => {
-    linkNavHide(link);
-  });
+});
+
+window.addEventListener("orientationchange", () => {
+  setTimeout(setRealVH,100)
 });
 
 // ===============================
