@@ -1,12 +1,12 @@
 /* -----------------------------
    Imports
    ----------------------------- */
-@import url("fonts.css");
-@import url("main-navbar.css");
-@import url("hamburger-navbar.css");
-@import url("hero.css");
-@import url("main.css");
-@import url("footer.css");
+@import url("CSS_Components/fonts.css");
+@import url("CSS_Components/main-navbar.css");
+@import url("CSS_Components/hamburger-navbar.css");
+@import url("CSS_Components/hero.css");
+@import url("CSS_Components/main.css");
+@import url("CSS_Components/footer.css");
 
 /* -----------------------------------------------------------
    GLOBAL DESIGN TOKENS

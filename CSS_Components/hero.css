@@ -134,11 +134,11 @@ header a:active {
    ----------------------------- */
 @media (orientation: portrait) {
   header::before {
-    background-image: url("Images/hero-portrait.webp");
+    background-image: url("../Images/hero-portrait.webp");
   }
 
   .hero.content {
-    height: calc(var(--vh) * 95);
+    height: calc(var(--vh) * 93);
     margin-top: calc(var(--vh) * 5);
   }
 
@@ -202,7 +202,7 @@ header a:active {
    ----------------------------- */
 @media (orientation: landscape) {
   header::before {
-    background-image: url("Images/hero-landscape.webp");
+    background-image: url("../Images/hero-landscape.webp");
   }
 
   .hero.content {

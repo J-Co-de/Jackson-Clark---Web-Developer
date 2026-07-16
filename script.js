@@ -11,7 +11,7 @@ const allLinks = document.querySelectorAll("a");
 
 let navLocked = false;
 let lastScrollY = window.scrollY;
-
+let lastInnerHeight = window.innerHeight;
 // ===============================
 // Modal Logic
 // ===============================
@@ -61,10 +61,12 @@ enableNavLift();
 
 window.visualViewport.addEventListener("resize", () => {
   enableNavLift();
-});
 
-window.addEventListener("orientationchange", () => {
-  setTimeout(setRealVH, 100);
+  if (window.innerHeight === lastInnerHeight) return;
+
+  lastInnerHeight = window.innerHeight;
+
+  setRealVH();
 });
 
 // ===============================

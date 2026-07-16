@@ -9,12 +9,11 @@ A clean, responsive, accessibility-focused developer portfolio built with HTML, 
 
 ## Demo
 
-Live site: <[insert your live site URL here](https://j-co-de.github.io/Jackson-Clark---Web-Developer/)>  
-(If hosted with GitHub Pages, replace with e.g. `https://<your-username>.github.io/<repo-name>/`)
+Live site: <[Jackson-Clark---Web-Developer](https://j-co-de.github.io/Jackson-Clark---Web-Developer/)>  
 
 Screenshot
 
-![Screenshot](images/preview.png)
+![Screenshot](Images/preview.png)
 
 ---
 
